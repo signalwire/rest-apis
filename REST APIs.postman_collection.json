@@ -686,9 +686,15 @@
 													"type": "text"
 												},
 												{
+													"key": "number_pooling_required",
+													"value": "true",
+													"description": "Will 50 or more numbers be used with this single campaign? Answer true or false.",
+													"type": "text"
+												},
+												{
 													"key": "number_pooling_per_campaign",
-													"value": "no ",
-													"description": "Will 50 or more numbers be used with this single campaign? If answering yes, please provide an explanation as to why it is needed.",
+													"value": "Each rep must have their own phone number",
+													"description": "If number pooling will be used, please provide an explanation as to why it is needed.",
 													"type": "text"
 												},
 												{
