@@ -613,167 +613,16 @@
 										"method": "POST",
 										"header": [],
 										"body": {
-											"mode": "urlencoded",
-											"urlencoded": [
-												{
-													"key": "name",
-													"value": "Cassie Test Campaign",
-													"description": "The name for the campaign ",
-													"type": "text"
-												},
-												{
-													"key": "sms_use_case",
-													"value": "2FA",
-													"description": "An SMS Use Case category for the campaign (2FA, ACCOUNT_NOTIFICATION, AGENTS_FRANCHISES, CARRIER_EXEMPT, CHARITY, CONVERSATIONAL, CUSTOMER_CARE, DELIVERY_NOTIFICATION, EMERGENCY, FRAUD_ALERT, HIGHER_EDUCATION, LOW_VOLUME_MIXED, MARKETING, MIXED, POLITICAL, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, SECURITY_ALERT, SOCIAL, SWEEPSTAKE, TRIAL).",
-													"type": "text"
-												},
-												{
-													"key": "sub_use_cases",
-													"value": "MARKETING, CUSTOMER_CARE",
-													"description": "A sub use case category for MIXED or LOW_VOLUME_MIXED campaigns (CUSTOMER_CARE, HIGHER_EDUCATION, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, MARKETING, SECURITY_ALERT, 2FA, ACCOUNT_NOTIFICATION, DELIVERY_NOTIFICATION, FRAUD_ALERT).",
-													"type": "text"
-												},
-												{
-													"key": "description",
-													"value": "This is a long campaign description to meet new minimum character requirements",
-													"description": "A description for the campaign.",
-													"type": "text"
-												},
-												{
-													"key": "sample1",
-													"value": "This is a long sample ",
-													"description": "Sample message template/content. At least one sample is required and up to five can be provided.",
-													"type": "text"
-												},
-												{
-													"key": "sample2",
-													"value": "This is a long sample",
-													"description": "Sample 2.",
-													"type": "text"
-												},
-												{
-													"key": "sample3",
-													"value": "",
-													"description": "Sample 3.",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "sample4",
-													"value": "",
-													"description": "Sample 4.",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "sample5",
-													"value": "",
-													"description": "Sample 5.",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "dynamic_templates",
-													"value": "Templates will not be dynamic",
-													"description": "If your messaging content will be modified in any way beyond what you shared in your templates, please describe the nature of how the content will change.",
-													"type": "text"
-												},
-												{
-													"key": "opt_in_message",
-													"value": "",
-													"description": "Please provide a description of how users provide their number to you and how they consent to receiving SMS messages.",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "opt_out_message",
-													"value": "This is an example of what an opt out message could be ",
-													"description": "Opt-out process description, or a URL to view the opt out process.",
-													"type": "text"
-												},
-												{
-													"key": "number_pooling_required",
-													"value": "true",
-													"description": "Will 50 or more numbers be used with this single campaign? Answer true or false.",
-													"type": "text"
-												},
-												{
-													"key": "number_pooling_per_campaign",
-													"value": "Each rep must have their own phone number",
-													"description": "If number pooling will be used, please provide an explanation as to why it is needed.",
-													"type": "text"
-												},
-												{
-													"key": "direct_lending",
-													"value": "false",
-													"description": "Will this campaign include content related to direct lending or other loan agreements?",
-													"type": "text"
-												},
-												{
-													"key": "embedded_link",
-													"value": "false",
-													"description": "Will you be using an embedded link of any kind? Note that public URL shorteners (bitly, tinyurl) will not be accepted.",
-													"type": "text"
-												},
-												{
-													"key": "embedded_phone",
-													"value": "false",
-													"description": "Are you using an embedded phone number (except the required HELP information contact phone number)?",
-													"type": "text"
-												},
-												{
-													"key": "terms_and_conditions",
-													"value": "true",
-													"description": "I agree to the terms and conditions that I will not use this campaign for affiliate marketing.",
-													"type": "text"
-												},
-												{
-													"key": "age_gated_content",
-													"value": "false",
-													"description": "Will this campaign include any age gated content as defined by carrier and CTA guidelines?",
-													"type": "text"
-												},
-												{
-													"key": "csp_campaign_reference",
-													"value": "",
-													"description": "If you are your own Campaign Service Provider, what is the approved Campaign ID? (Mandatory for CSPs, otherwise please omit)",
-													"type": "text",
-													"disabled": true
-												},
-												{
-													"key": "help_message",
-													"value": "some sort of message descriping how users get help ",
-													"type": "text"
-												},
-												{
-													"key": "help_keywords",
-													"value": "na",
-													"type": "text"
-												},
-												{
-													"key": "opt_in_keywords",
-													"value": "na",
-													"type": "text"
-												},
-												{
-													"key": "opt_out_keywords",
-													"value": "na",
-													"type": "text"
-												},
-												{
-													"key": "message_flow",
-													"value": "this is a long call to action of what your customer should experience",
-													"type": "text"
-												},
-												{
-													"key": "lead_generation",
-													"value": "false",
-													"type": "text"
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"My Campaign\",\n  \"sms_use_case\": \"MIXED\",\n  \"sub_use_cases\": [\"MARKETING\", \"CUSTOMER_CARE\"],\n  \"description\": \"this is a description about what your campaign will do\",\n  \"sample1\": \"this is a long sample message\",\n  \"sample2\": \"this is a long sample message\",\n  \"dynamic_templates\": \"string\",\n  \"message_flow\": \"Users will opt in to receive messages from their doctor through a written form and we will send them an opt in message. Appointment reminders will then be sent ahead of their appointments.\",\n  \"opt_in_message\": \"Thanks for subscribing. Reply STOP to cancel at any time.\",\n  \"opt_out_message\": \"You have successfully been opted out. Reply START to opt back in at any time. \",\n  \"help_message\": \"You have successfully been opted out. Reply SUBSCRIBE to opt back in at any time. \",\n  \"number_pooling_required\": true,\n  \"number_pooling_per_campaign\": \"We have customer reps in every state and they each need their own number with local area code.\",\n  \"direct_lending\": true,\n  \"embedded_link\": false,\n  \"embedded_phone\": false,\n  \"age_gated_content\": true,\n  \"lead_generation\": true,\n  \"csp_campaign_reference\": \"1231231\",\n  \"terms_and_conditions\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
 												}
-											]
+											}
 										},
 										"url": {
-											"raw": "https://{{Space}}/api/relay/rest/registry/beta/brands/aacd176a-7efb-4ad4-8bb4-9b0c377e55e9/campaigns",
+											"raw": "https://{{Space}}/api/relay/rest/registry/beta/brands/{BRAND_ID_HERE}/campaigns",
 											"protocol": "https",
 											"host": [
 												"{{Space}}"
@@ -785,7 +634,7 @@
 												"registry",
 												"beta",
 												"brands",
-												"aacd176a-7efb-4ad4-8bb4-9b0c377e55e9",
+												"{BRAND_ID_HERE}",
 												"campaigns"
 											]
 										}
