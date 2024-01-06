@@ -3395,6 +3395,121 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Tokens",
+			"item": [
+				{
+					"name": "Create API Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"My Token\",\n\"permissions\": [\"calling\", \"chat\", \"fax\", \"messaging\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Token",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Update\",\n\"permissions\": [\"calling\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens/:token_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"tokens",
+								":token_id"
+							],
+							"variable": [
+								{
+									"key": "token_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Token",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Updated Token\",\n\"permissions\": [\"calling\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens/:token_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"tokens",
+								":token_id"
+							],
+							"variable": [
+								{
+									"key": "token_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {

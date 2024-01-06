@@ -3057,7 +3057,119 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Tokens",
+					"item": [
+						{
+							"name": "Create API Token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"name\": \"My Token\",\n\"permissions\": [\"calling\", \"chat\", \"fax\", \"messaging\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Space}}/api/project/tokens",
+									"protocol": "https",
+									"host": [
+										"{{Space}}"
+									],
+									"path": [
+										"api",
+										"project",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Token",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"name\": \"Updated Token\",\n\"permissions\": [\"calling\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Space}}/api/project/tokens/:token_id",
+									"protocol": "https",
+									"host": [
+										"{{Space}}"
+									],
+									"path": [
+										"api",
+										"project",
+										"tokens",
+										":token_id"
+									],
+									"variable": [
+										{
+											"key": "token_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Token",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"name\": \"Updated Token\",\n\"permissions\": [\"calling\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Space}}/api/project/tokens/:token_id",
+									"protocol": "https",
+									"host": [
+										"{{Space}}"
+									],
+									"path": [
+										"api",
+										"project",
+										"tokens",
+										":token_id"
+									],
+									"variable": [
+										{
+											"key": "token_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		}
+
 	],
 	"auth": {
 		"type": "basic",
