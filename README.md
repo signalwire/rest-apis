@@ -12,6 +12,7 @@ In this repo you'll find 2 collections that can be imported into Postman:
   - Message API
   - Fax API
   - Voice API
+  - Project API
   
 Once you’re logged into Postman, you can click **Import** in the top left corner, choose the **File** tab and select the downloaded collection(s).
 
@@ -25,4 +26,3 @@ You can get the required credentials [in your space](https://developer.signalwir
 - Space -> Your Space URL (spacename.signalwire.com, no prepended https://)
 
 If you choose to use different variable names in your environment to represent the required authentication variables, you will need to change them at the collection level as well! Hover over the collection and click the three dots, then click Edit. Go to the authorization tag and adjust the environment variables to match your new names. 
-
