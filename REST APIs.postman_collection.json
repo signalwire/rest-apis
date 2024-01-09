@@ -1747,6 +1747,12 @@
 											"type": "text"
 										},
 										{
+											"key": "description",
+											"value": "This room is for talking about using APIs with Postman!",
+											"description": "Description of the room. Maximum of 3000 characters.",
+											"type": "text"
+										},
+										{
 											"key": "max_members",
 											"value": "1",
 											"description": "The maximum number of members in the room at a time. Must be at least one to a maximum of 300. Defaults to 20.",
@@ -1879,6 +1885,12 @@
 											"key": "display_name",
 											"value": "New Display Name",
 											"description": "Display name of the room. Maximum of 200 characters. Defaults to the value of name.",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "This room is for talking about using APIs with Postman!",
+											"description": "Description of the room. Maximum of 3000 characters.",
 											"type": "text"
 										},
 										{
@@ -2561,7 +2573,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"my_room\",\n  \"display_name\": \"My Conference's Name\",\n  \"quality\": \"720p\",\n  \"layout\": \"grid-responsive\",\n  \"size\": \"small\",\n  \"record_on_start\": true,\n  \"enable_room_previews\": true,\n  \"dark_primary\": \"#044EF4\",\n  \"dark_background\": \"#FFFFFF\",\n  \"dark_foreground\": \"#1D2127\",\n  \"dark_success\": \"#17BB58\",\n  \"dark_negative\": \"#F42C50\",\n  \"light_primary\": \"#044EF4\",\n  \"light_background\": \"#FFFFFF\",\n  \"light_foreground\": \"#1D2127\",\n  \"light_success\": \"#17BB58\",\n  \"light_negative\": \"#F42C50\"\n}",
+									"raw": "{\n  \"name\": \"my_room\",\n  \"display_name\": \"My Conference's Name\",\n  \"description\": \"My Conference's Description\",\n  \"quality\": \"720p\",\n  \"layout\": \"grid-responsive\",\n  \"size\": \"small\",\n  \"record_on_start\": true,\n  \"enable_room_previews\": true,\n  \"dark_primary\": \"#044EF4\",\n  \"dark_background\": \"#FFFFFF\",\n  \"dark_foreground\": \"#1D2127\",\n  \"dark_success\": \"#17BB58\",\n  \"dark_negative\": \"#F42C50\",\n  \"light_primary\": \"#044EF4\",\n  \"light_background\": \"#FFFFFF\",\n  \"light_foreground\": \"#1D2127\",\n  \"light_success\": \"#17BB58\",\n  \"light_negative\": \"#F42C50\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2590,7 +2602,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"new_name\",\n  \"display_name\": \"My Conference's New Name\",\n  \"quality\": \"1080p\",\n  \"record_on_start\": false,\n  \"enable_room_previews\": false\n}",
+									"raw": "{\n  \"name\": \"new_name\",\n  \"display_name\": \"My Conference's New Name\",\n  \"description\": \"My Conference's Description\",\n  \"quality\": \"1080p\",\n  \"record_on_start\": false,\n  \"enable_room_previews\": false\n}",
 									"options": {
 										"raw": {
 											"language": "json"
