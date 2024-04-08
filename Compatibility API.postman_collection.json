@@ -10,12 +10,41 @@
 			"name": "Accounts",
 			"item": [
 				{
+					"name": "List All Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts?FriendlyName=Main",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "FriendlyName",
+									"value": "Main",
+									"description": "Returns the accounts whose FriendlyName exactly matches the one provided."
+								}
+							]
+						},
+						"description": "This route is present to be API compatible with other providers, but since authentication on SignalWire is specific to a Project, this endpoint will return a list that contains only the Project you are connecting as."
+					},
+					"response": []
+				},
+				{
 					"name": "Find an Account by ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/:account_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -25,38 +54,16 @@
 								"laml",
 								"2010-04-01",
 								"Accounts",
-								"{{Proj}}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Accounts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts.json?FriendlyName=Project Name",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":account_id"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts.json"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "FriendlyName",
-									"value": "Project Name",
-									"description": "Returns the accounts whose FriendlyName exactly matches the one provided."
+									"key": "account_id",
+									"value": "{{Proj}}",
+									"description": "The ID of the account (project) that you want to retrieve"
 								}
 							]
-						},
-						"description": "This route is present to be API compatible with other providers, but since authentication on SignalWire is specific to a Project, this endpoint will return a list that contains only the Project you are connecting as."
+						}
 					},
 					"response": []
 				},
@@ -77,7 +84,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/:account_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -87,7 +94,14 @@
 								"laml",
 								"2010-04-01",
 								"Accounts",
-								"{{Proj}}.json"
+								":account_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{Proj}}",
+									"description": "The ID of the account (project) that you want to update"
+								}
 							]
 						},
 						"description": "Allows you to change the name of the project used in authentication "
@@ -132,6 +146,68 @@
 		{
 			"name": "Applications",
 			"item": [
+				{
+					"name": "List All Applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Applications"
+							],
+							"query": [
+								{
+									"key": "FriendlyName",
+									"value": "App1",
+									"description": "Returns the applications whose FriendlyName exactly matches the one provided.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Optional FriendlyName parameter to choose a specific one by name "
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an Application",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Applications",
+								":application_sid"
+							],
+							"variable": [
+								{
+									"key": "application_sid",
+									"value": "33e53c9f-715a-40b2-a6dd-c8492b137aec"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Create Application",
 					"request": {
@@ -233,7 +309,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -244,66 +320,10 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Applications.json"
+								"Applications"
 							]
 						},
 						"description": "Creates a new application within the project used for authentication "
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve an Application",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/{ApplicationSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Applications",
-								"{ApplicationSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Applications",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Applications.json"
-							],
-							"query": [
-								{
-									"key": "FriendlyName",
-									"value": "App1",
-									"description": "Returns the applications whose FriendlyName exactly matches the one provided.",
-									"disabled": true
-								}
-							]
-						},
-						"description": "Optional FriendlyName parameter to choose a specific one by name "
 					},
 					"response": []
 				},
@@ -407,7 +427,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/{ApplicationSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -419,7 +439,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Applications",
-								"{ApplicationSID}.json"
+								":application_sid"
+							],
+							"variable": [
+								{
+									"key": "application_sid",
+									"value": "33e53c9f-715a-40b2-a6dd-c8492b137aec"
+								}
 							]
 						}
 					},
@@ -431,7 +457,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/{ApplicationSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -443,13 +469,19 @@
 								"Accounts",
 								"{{Proj}}",
 								"Applications",
-								"{ApplicationSID}.json"
+								":application_sid"
 							],
 							"query": [
 								{
 									"key": "",
 									"value": "",
 									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "application_sid",
+									"value": "33e53c9f-715a-40b2-a6dd-c8492b137aec"
 								}
 							]
 						}
@@ -462,12 +494,67 @@
 			"name": "Available Phone Numbers",
 			"item": [
 				{
+					"name": "List Available Phone Number Resources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"AvailablePhoneNumbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Available Phone Number Resources by Country ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}}/AvailablePhoneNumbers/:country",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}}",
+								"AvailablePhoneNumbers",
+								":country"
+							],
+							"variable": [
+								{
+									"key": "country",
+									"value": "US",
+									"description": "ISO country code"
+								}
+							]
+						},
+						"description": "Returns a list of URIs to phone number resources available to the account in the US ISO country, categorized by type (Local, Toll-Free, Mobile, etc)."
+					},
+					"response": []
+				},
+				{
 					"name": "Search for Local Available Numbers",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/Local.json?InRegion=LA",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/Local?InRegion=LA",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -480,7 +567,7 @@
 								"{{Proj}}",
 								"AvailablePhoneNumbers",
 								"US",
-								"Local.json"
+								"Local"
 							],
 							"query": [
 								{
@@ -559,7 +646,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/{US}/TollFree.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/TollFree",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -571,8 +658,8 @@
 								"Accounts",
 								"{{Proj}}",
 								"AvailablePhoneNumbers",
-								"{US}",
-								"TollFree.json"
+								"US",
+								"TollFree"
 							],
 							"query": [
 								{
@@ -591,14 +678,19 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Calls",
+			"item": [
 				{
-					"name": "List Available Phone Number Resources",
+					"name": "List Calls",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -609,19 +701,79 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"AvailablePhoneNumbers.json"
+								"Calls"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "ParentCallSid",
+									"value": "7c175a76-4bfc-4cea-93aa-4966f89b4be1",
+									"description": "Returns calls that created the leg of the call.",
+									"disabled": true
+								},
+								{
+									"key": "Status",
+									"value": "failed",
+									"description": "returns only calls with specified status ",
+									"disabled": true
+								},
+								{
+									"key": "To",
+									"value": "%2b12143334444",
+									"description": "return calls from To number, must include %2b and be in E164 format",
+									"disabled": true
+								},
+								{
+									"key": "From",
+									"value": "%2b12143334444",
+									"description": "return calls from From number, must include %2b and be in E164 format",
+									"disabled": true
+								},
+								{
+									"key": "StartTime<",
+									"value": "2020-08-10",
+									"description": "return calls on or before midnight of date",
+									"disabled": true
+								},
+								{
+									"key": "StartTime>",
+									"value": "2020-08-10",
+									"description": "return calls on or after midnight of date",
+									"disabled": true
+								},
+								{
+									"key": "StartTime",
+									"value": "2020-08-10",
+									"description": "return calls that started on date ",
+									"disabled": true
+								},
+								{
+									"key": "EndTime",
+									"value": "2020-08-10",
+									"description": "return calls that ended on date",
+									"disabled": true
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "List Available Phone Number Resources by Country ",
+					"name": "Retrieve a Call",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}}/AvailablePhoneNumbers/{US}",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid_here",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -631,20 +783,97 @@
 								"laml",
 								"2010-04-01",
 								"Accounts",
-								"{{Proj}}}",
-								"AvailablePhoneNumbers",
-								"{US}"
+								"{{Proj}}",
+								"Calls",
+								":call_sid_here"
+							],
+							"variable": [
+								{
+									"key": "call_sid_here",
+									"value": "e220bb70-b0b6-4174-813f-add9910f6533"
+								}
 							]
-						},
-						"description": "Returns a list of URIs to phone number resources available to the account in the US ISO country, categorized by type (Local, Toll-Free, Mobile, etc)."
+						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Calls",
-			"item": [
+				},
+				{
+					"name": "Update a Call",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Status",
+									"value": "completed",
+									"description": "Change the status of the call. Possible values are cancelled and completed.",
+									"type": "text"
+								},
+								{
+									"key": "FallbackMethod",
+									"value": "",
+									"description": "Whether the request to FallbackUrl is a GET or a POST. Default is POST.",
+									"type": "text"
+								},
+								{
+									"key": "FallbackUrl",
+									"value": "",
+									"description": "The URL SignalWire will request if errors occur when fetching the Url",
+									"type": "text"
+								},
+								{
+									"key": "Method",
+									"value": "",
+									"description": "Whether the request to Url is a GET or a POST. Default is POST.",
+									"type": "text"
+								},
+								{
+									"key": "StatusCallback",
+									"value": "",
+									"description": "The URL SignalWire will send webhooks to on every StatusCallbackEvent event. Default is completed.",
+									"type": "text"
+								},
+								{
+									"key": "StatusCallbackMethod",
+									"value": "",
+									"description": "Whether the request to StatusCallback URL is a GET or a POST. Default is POST.",
+									"type": "text"
+								},
+								{
+									"key": "Url",
+									"value": "",
+									"description": "The URL of a new LaML document to start executing.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Calls",
+								":call_sid"
+							],
+							"variable": [
+								{
+									"key": "call_sid",
+									"value": "e220bb70-b0b6-4174-813f-add9910f6533"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Create a Call",
 					"request": {
@@ -655,19 +884,19 @@
 							"urlencoded": [
 								{
 									"key": "From",
-									"value": "+1##########",
+									"value": "+12003004000",
 									"description": "Required, must be a number from current project ",
 									"type": "text"
 								},
 								{
 									"key": "To",
-									"value": "+1##########",
+									"value": "+13338889999",
 									"description": "Required",
 									"type": "text"
 								},
 								{
 									"key": "Url",
-									"value": "",
+									"value": "https://some_url.com/call",
 									"description": "Required if application sid  present",
 									"type": "text"
 								},
@@ -778,24 +1007,21 @@
 								},
 								{
 									"key": "StatusCallback",
-									"value": "",
+									"value": "https://webhook.site/bbeba55e-d257-48ef-8b0b-78511da278af",
 									"description": "The URL SignalWire will send webhooks to on every requested StatusCallbackEvent event.",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "StatusCallbackEvent",
-									"value": "",
+									"value": "completed",
 									"description": "The status events that trigger a SignalWire webhook. Possible values are initiated, ringing, answered, and completed. Default is completed.",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "StatusCallbackMethod",
-									"value": "",
+									"value": "POST",
 									"description": "Whether the request to StatusCallback URL is a GET or a POST. Default is POST. Ignored if ApplicationSid is present.",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "Timeout",
@@ -810,11 +1036,29 @@
 									"description": "Whether leading and trailing silence is trimmed from a recording. Possible values are trim-silence and do-not-trim. Default is trim-silence.",
 									"type": "text",
 									"disabled": true
+								},
+								{
+									"key": "MaxPricePerMinute",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "AsyncAmd",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "AsyncAmdStatusCallback",
+									"value": "https://webhook.site/31cebf03-dc5f-49dc-b9fb-4ae7d9665c5a",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -825,78 +1069,7 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Calls.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update a Call",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "Status",
-									"value": "completed",
-									"description": "Change the status of the call. Possible values are cancelled and completed.",
-									"type": "text"
-								},
-								{
-									"key": "FallbackMethod",
-									"value": "",
-									"description": "Whether the request to FallbackUrl is a GET or a POST. Default is POST.",
-									"type": "text"
-								},
-								{
-									"key": "FallbackUrl",
-									"value": "",
-									"description": "The URL SignalWire will request if errors occur when fetching the Url",
-									"type": "text"
-								},
-								{
-									"key": "Method",
-									"value": "",
-									"description": "Whether the request to Url is a GET or a POST. Default is POST.",
-									"type": "text"
-								},
-								{
-									"key": "StatusCallback",
-									"value": "",
-									"description": "The URL SignalWire will send webhooks to on every StatusCallbackEvent event. Default is completed.",
-									"type": "text"
-								},
-								{
-									"key": "StatusCallbackMethod",
-									"value": "",
-									"description": "Whether the request to StatusCallback URL is a GET or a POST. Default is POST.",
-									"type": "text"
-								},
-								{
-									"key": "Url",
-									"value": "",
-									"description": "The URL of a new LaML document to start executing.",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/{CallSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Calls",
-								"{CallSID}.json"
+								"Calls"
 							]
 						}
 					},
@@ -908,7 +1081,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/{8b8611aa-ec8f-4f7e-9539-421479124b5c}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -920,113 +1093,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Calls",
-								"{8b8611aa-ec8f-4f7e-9539-421479124b5c}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List Calls",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls.json?From=%2b12143334444",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":call_sid"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Calls.json"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "PageSize",
-									"value": "5",
-									"disabled": true
-								},
-								{
-									"key": "page",
-									"value": "1",
-									"disabled": true
-								},
-								{
-									"key": "ParentCallSid",
-									"value": "7c175a76-4bfc-4cea-93aa-4966f89b4be1",
-									"description": "Returns calls that created the leg of the call.",
-									"disabled": true
-								},
-								{
-									"key": "Status",
-									"value": "failed",
-									"description": "returns only calls with specified status ",
-									"disabled": true
-								},
-								{
-									"key": "To",
-									"value": "%2b12143334444",
-									"description": "return calls from To number, must include %2b and be in E164 format",
-									"disabled": true
-								},
-								{
-									"key": "From",
-									"value": "%2b12143334444",
-									"description": "return calls from From number, must include %2b and be in E164 format"
-								},
-								{
-									"key": "StartTime<",
-									"value": "2020-08-10",
-									"description": "return calls on or before midnight of date",
-									"disabled": true
-								},
-								{
-									"key": "StartTime>",
-									"value": "2020-08-10",
-									"description": "return calls on or after midnight of date",
-									"disabled": true
-								},
-								{
-									"key": "StartTime",
-									"value": "2020-08-10",
-									"description": "return calls that started on date ",
-									"disabled": true
-								},
-								{
-									"key": "EndTime",
-									"value": "2020-08-10",
-									"description": "return calls that ended on date",
-									"disabled": true
+									"key": "call_sid",
+									"value": ""
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve a Call",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/{CALL SID HERE}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Calls",
-								"{CALL SID HERE}"
 							]
 						}
 					},
@@ -1038,38 +1111,12 @@
 			"name": "Conference Participants",
 			"item": [
 				{
-					"name": "Retrieve a Participant",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}/Participants/{ParticipantSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Conferences",
-								"{ConferenceSID}",
-								"Participants",
-								"{ParticipantSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "List All Active Participants ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}/Participants.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1081,8 +1128,8 @@
 								"Accounts",
 								"{{Proj}}",
 								"Conferences",
-								"{ConferenceSID}",
-								"Participants.json"
+								":conference_sid",
+								"Participants"
 							],
 							"query": [
 								{
@@ -1096,6 +1143,48 @@
 									"value": null,
 									"description": "Whether or not the participant is on hold. Possible values are true or false.",
 									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "conference_sid",
+									"value": "79d10a4a-8a83-4702-bd00-5554040978e2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Participant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Conferences",
+								":conference_sid",
+								"Participants",
+								":participant_sid"
+							],
+							"variable": [
+								{
+									"key": "conference_sid",
+									"value": ""
+								},
+								{
+									"key": "participant_sid",
+									"value": ""
 								}
 							]
 						}
@@ -1155,7 +1244,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}/Participants/{ParticipantSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1167,9 +1256,19 @@
 								"Accounts",
 								"{{Proj}}",
 								"Conferences",
-								"{ConferenceSID}",
+								":conference_sid",
 								"Participants",
-								"{ParticipantSID}.json"
+								":participant_sid"
+							],
+							"variable": [
+								{
+									"key": "conference_sid",
+									"value": ""
+								},
+								{
+									"key": "participant_sid",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1181,7 +1280,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}/Participants/{ParticipantSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1193,9 +1292,19 @@
 								"Accounts",
 								"{{Proj}}",
 								"Conferences",
-								"{ConferenceSID}",
+								":conference_sid",
 								"Participants",
-								"{ParticipantSID}.json"
+								":participant_sid"
+							],
+							"variable": [
+								{
+									"key": "conference_sid",
+									"value": ""
+								},
+								{
+									"key": "participant_sid",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1207,36 +1316,12 @@
 			"name": "Conferences",
 			"item": [
 				{
-					"name": "Retrieve a Conference",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Conferences",
-								"{ConferenceSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "List All Conferences",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1247,7 +1332,7 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Conferences.json"
+								"Conferences"
 							],
 							"query": [
 								{
@@ -1304,12 +1389,12 @@
 					"response": []
 				},
 				{
-					"name": "Update a Conference",
+					"name": "Retrieve a Conference",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/{ConferenceSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1321,7 +1406,37 @@
 								"Accounts",
 								"{{Proj}}",
 								"Conferences",
-								"{ConferenceSID}.json"
+								":conference_sid"
+							],
+							"variable": [
+								{
+									"key": "conference_sid",
+									"value": "79d10a4a-8a83-4702-bd00-5554040978e2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Conference",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Conferences",
+								":conference_id"
 							],
 							"query": [
 								{
@@ -1342,6 +1457,12 @@
 									"description": "Whether the request to AnnounceUrl is a GET or a POST. Default is POST.",
 									"disabled": true
 								}
+							],
+							"variable": [
+								{
+									"key": "conference_id",
+									"value": "79d10a4a-8a83-4702-bd00-5554040978e2"
+								}
 							]
 						}
 					},
@@ -1353,12 +1474,12 @@
 			"name": "Fax Media",
 			"item": [
 				{
-					"name": "Retrieve a Fax Media Instance",
+					"name": "List All Media of a Fax ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}/Media/{MediaSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1370,15 +1491,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}",
-								"Media",
-								"{MediaSID}.json"
+								":fax_sid",
+								"Media"
 							],
-							"query": [
+							"variable": [
 								{
-									"key": "",
-									"value": null,
-									"disabled": true
+									"key": "fax_sid",
+									"value": "ac6eaa65-6266-4265-bbfe-4511986095df"
 								}
 							]
 						}
@@ -1386,12 +1505,12 @@
 					"response": []
 				},
 				{
-					"name": "List All Media of a Fax ",
+					"name": "Retrieve a Fax Media Instance",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}/Media.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media/:media_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1403,8 +1522,26 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}",
-								"Media.json"
+								":fax_sid",
+								"Media",
+								":media_sid"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "fax_sid",
+									"value": "ac6eaa65-6266-4265-bbfe-4511986095df"
+								},
+								{
+									"key": "media_sid",
+									"value": "2ff76de9-c3b6-4433-86b1-9626cfdb9b65"
+								}
 							]
 						}
 					},
@@ -1416,7 +1553,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}/Media/{MediaSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media/:media_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1428,9 +1565,19 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}",
+								":fax_sid",
 								"Media",
-								"{MediaSID}.json"
+								":media_sid"
+							],
+							"variable": [
+								{
+									"key": "fax_sid",
+									"value": "ac6eaa65-6266-4265-bbfe-4511986095df"
+								},
+								{
+									"key": "media_sid",
+									"value": "2ff76de9-c3b6-4433-86b1-9626cfdb9b65"
+								}
 							]
 						}
 					},
@@ -1442,12 +1589,61 @@
 			"name": "Faxes",
 			"item": [
 				{
+					"name": "List All Faxes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Faxes"
+							],
+							"query": [
+								{
+									"key": "date_created_after",
+									"value": "2020-09-08",
+									"description": "Returns faxes after a specific date ",
+									"disabled": true
+								},
+								{
+									"key": "date_created_on_or_before",
+									"value": "2020-09-09",
+									"description": "Returns faxes on or before a specific date ",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "+12143334444",
+									"description": "Returns filtered by To ",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "+12143334444",
+									"description": "Returns filtered by From",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Retrieve a Fax ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1459,7 +1655,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}.json"
+								":fax_sid"
+							],
+							"variable": [
+								{
+									"key": "fax_sid",
+									"value": "ac6eaa65-6266-4265-bbfe-4511986095df"
+								}
 							]
 						}
 					},
@@ -1475,22 +1677,21 @@
 							"urlencoded": [
 								{
 									"key": "To",
-									"value": "+1##########",
+									"value": "+18003334444",
 									"description": "REQUIRED, The phone number, in E.164 format, the fax will be sent to.",
 									"type": "text"
 								},
 								{
 									"key": "MediaUrl",
-									"value": "https://www.nemotile.com/media/pdf/dummy.pdf",
+									"value": "https://www.dropbox.com/document.pdf?dl=1",
 									"description": "REQUIRED, The URL to the PDF used for the fax's media.",
 									"type": "text"
 								},
 								{
 									"key": "From",
-									"value": "+1##########",
+									"value": "+12223334444",
 									"description": "The phone number, in E.164 format, the fax will be sent from.",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "Quality",
@@ -1523,7 +1724,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1534,7 +1735,7 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Faxes.json"
+								"Faxes"
 							]
 						}
 					},
@@ -1552,13 +1753,12 @@
 									"key": "Status",
 									"value": "canceled",
 									"description": "Only possible value is canceled, may not work if transmission has already begun\n",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1570,55 +1770,12 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Faxes",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":fax_sid"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Faxes.json"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "date_created_after",
-									"value": "2020-09-08",
-									"description": "Returns faxes after a specific date ",
-									"disabled": true
-								},
-								{
-									"key": "date_created_on_or_before",
-									"value": "2020-09-09",
-									"description": "Returns faxes on or before a specific date ",
-									"disabled": true
-								},
-								{
-									"key": "to",
-									"value": "+1##########",
-									"description": "Returns filtered by To ",
-									"disabled": true
-								},
-								{
-									"key": "from",
-									"value": "+1##########",
-									"description": "Returns filtered by From",
-									"disabled": true
+									"key": "fax_sid",
+									"value": ""
 								}
 							]
 						}
@@ -1631,7 +1788,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/{FaxSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1643,7 +1800,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Faxes",
-								"{FaxSID}.json"
+								":fax_sid"
+							],
+							"variable": [
+								{
+									"key": "fax_sid",
+									"value": "ac6eaa65-6266-4265-bbfe-4511986095df"
+								}
 							]
 						}
 					},
@@ -1675,6 +1838,252 @@
 			"name": "Incoming Phone Numbers",
 			"item": [
 				{
+					"name": "List All Incoming Phone Numbers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"IncomingPhoneNumbers"
+							],
+							"query": [
+								{
+									"key": "Beta",
+									"value": null,
+									"description": "NOT CURRENTLY SUPPORTED, Shows new SignalWire numbers. Possible values are true or false. Default is true.",
+									"disabled": true
+								},
+								{
+									"key": "FriendlyName",
+									"value": null,
+									"description": "Shows numbers that exactly match the provided friendly name.",
+									"disabled": true
+								},
+								{
+									"key": "Origin",
+									"value": null,
+									"description": "Shows numbers that have the provided origin. SignalWire numbers are denoted as signalwire while hosted numbers are denoted as hosted.",
+									"disabled": true
+								},
+								{
+									"key": "PhoneNumber",
+									"value": null,
+									"description": "Shows the numbers that exactly match the provided pattern.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an Incoming Phone Number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"IncomingPhoneNumbers",
+								":phone_number_sid"
+							],
+							"variable": [
+								{
+									"key": "phone_number_sid",
+									"value": "247cc121-06d7-4259-baf3-bb525db7776a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Incoming Phone Number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "FriendlyName",
+									"value": "This is a name change!",
+									"description": "The formatted version of the phone number.",
+									"type": "text"
+								},
+								{
+									"key": "AddressSid",
+									"value": "",
+									"description": "The unique identifier for the address associated with this phone number.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "EmergencyAddressSid",
+									"value": "",
+									"description": "The unique identifier of the address to be used for E911.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "IdentitySid",
+									"value": "",
+									"description": "The unique identifier for the identity associated with this phone number.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "SmsApplicationSid",
+									"value": "",
+									"description": "The unique identifier for the application associated with SMS handling on this phone number. If SmsApplicationSid is present, the URLs on the application will be used and all other URLs will be ignored.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "SmsFallbackMethod",
+									"value": "",
+									"description": "Whether the request to SmsFallbackUrl is a GET or a POST. Default is POST.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "SmsFallbackUrl",
+									"value": "",
+									"description": "The URL to request if errors occur when fetching SmsUrl.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "SmsMethod",
+									"value": "",
+									"description": "Whether the request to SmsUrl is a GET or a POST. Default is POST.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "SmsUrl",
+									"value": "",
+									"description": "The URL to request when an incoming SMS is received.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "StatusCallback",
+									"value": "",
+									"description": "The URL to request to pass status updates to.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "StatusCallbackMethod",
+									"value": "",
+									"description": "Whether the request to StatusCallback is a GET or a POST. Default is POST.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "TrunkSid",
+									"value": "",
+									"description": "The unique identifier for the Trunk associated with this phone number.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceApplicationSid",
+									"value": "",
+									"description": "The unique identifier for the application associated with call handling on this phone number. If VoiceApplicationSid is present, the URLs on the application will be used and all other URLs will be ignored.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceCallerIdLookup",
+									"value": "",
+									"description": "Whether or not to look up a caller's name in the database. Possible values are true or false.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceFallbackMethod",
+									"value": "",
+									"description": "Whether the request to VoiceFallbackUrl is a GET or a POST. Default is POST.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceFallbackUrl",
+									"value": "",
+									"description": "The URL to request if errors occur when fetching Url.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceMethod",
+									"value": "",
+									"description": "Whether the request to Url is a GET or a POST. Default is POST.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceReceiveMode",
+									"value": "",
+									"description": "Whether this number can receive calls or fax. Possible values are voice or fax. Default is voice.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "VoiceUrl",
+									"value": "",
+									"description": "The URL to request when a phone number receives a call or fax.",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"IncomingPhoneNumbers",
+								":phone_number_sid"
+							],
+							"variable": [
+								{
+									"key": "phone_number_sid",
+									"value": "247cc121-06d7-4259-baf3-bb525db7776a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create an Incoming Phone Number",
 					"request": {
 						"method": "POST",
@@ -1684,14 +2093,13 @@
 							"urlencoded": [
 								{
 									"key": "FriendlyName",
-									"value": "IncomingNumber1",
+									"value": "My New Number",
 									"description": "Optional Name ",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "PhoneNumber",
-									"value": "+1##########",
+									"value": "+17199413749",
 									"description": "Required, the new number, in E.164 format, you would like to buy",
 									"type": "text"
 								},
@@ -1824,7 +2232,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -1835,242 +2243,7 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"IncomingPhoneNumbers.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve an Incoming Phone Number",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/{PhoneNumberSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"IncomingPhoneNumbers",
-								"{PhoneNumberSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Incoming Phone Numbers",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"IncomingPhoneNumbers.json"
-							],
-							"query": [
-								{
-									"key": "Beta",
-									"value": null,
-									"description": "NOT CURRENTLY SUPPORTED, Shows new SignalWire numbers. Possible values are true or false. Default is true.",
-									"disabled": true
-								},
-								{
-									"key": "FriendlyName",
-									"value": null,
-									"description": "Shows numbers that exactly match the provided friendly name.",
-									"disabled": true
-								},
-								{
-									"key": "Origin",
-									"value": null,
-									"description": "Shows numbers that have the provided origin. SignalWire numbers are denoted as signalwire while hosted numbers are denoted as hosted.",
-									"disabled": true
-								},
-								{
-									"key": "PhoneNumber",
-									"value": null,
-									"description": "Shows the numbers that exactly match the provided pattern.",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update an Incoming Phone Number",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "FriendlyName",
-									"value": "TwilioTest",
-									"description": "The formatted version of the phone number.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "AddressSid",
-									"value": "",
-									"description": "The unique identifier for the address associated with this phone number.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "EmergencyAddressSid",
-									"value": "",
-									"description": "The unique identifier of the address to be used for E911.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "IdentitySid",
-									"value": "",
-									"description": "The unique identifier for the identity associated with this phone number.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "SmsApplicationSid",
-									"value": "",
-									"description": "The unique identifier for the application associated with SMS handling on this phone number. If SmsApplicationSid is present, the URLs on the application will be used and all other URLs will be ignored.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "SmsFallbackMethod",
-									"value": "",
-									"description": "Whether the request to SmsFallbackUrl is a GET or a POST. Default is POST.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "SmsFallbackUrl",
-									"value": "",
-									"description": "The URL to request if errors occur when fetching SmsUrl.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "SmsMethod",
-									"value": "",
-									"description": "Whether the request to SmsUrl is a GET or a POST. Default is POST.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "SmsUrl",
-									"value": "",
-									"description": "The URL to request when an incoming SMS is received.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "StatusCallback",
-									"value": "",
-									"description": "The URL to request to pass status updates to.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "StatusCallbackMethod",
-									"value": "",
-									"description": "Whether the request to StatusCallback is a GET or a POST. Default is POST.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "TrunkSid",
-									"value": "",
-									"description": "The unique identifier for the Trunk associated with this phone number.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceApplicationSid",
-									"value": "",
-									"description": "The unique identifier for the application associated with call handling on this phone number. If VoiceApplicationSid is present, the URLs on the application will be used and all other URLs will be ignored.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceCallerIdLookup",
-									"value": "",
-									"description": "Whether or not to look up a caller's name in the database. Possible values are true or false.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceFallbackMethod",
-									"value": "",
-									"description": "Whether the request to VoiceFallbackUrl is a GET or a POST. Default is POST.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceFallbackUrl",
-									"value": "",
-									"description": "The URL to request if errors occur when fetching Url.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceMethod",
-									"value": "",
-									"description": "Whether the request to Url is a GET or a POST. Default is POST.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceReceiveMode",
-									"value": "",
-									"description": "Whether this number can receive calls or fax. Possible values are voice or fax. Default is voice.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "VoiceUrl",
-									"value": "",
-									"description": "The URL to request when a phone number receives a call or fax.",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/{PhoneNumberSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"IncomingPhoneNumbers",
-								"{PhoneNumberSID}.json"
+								"IncomingPhoneNumbers"
 							]
 						}
 					},
@@ -2082,7 +2255,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/{PhoneNumbeSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2094,31 +2267,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"IncomingPhoneNumbers",
-								"{PhoneNumbeSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Transfer an Incoming Phone Number",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/{PhoneNumberSID}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":phone_number_sid"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"IncomingPhoneNumbers",
-								"{PhoneNumberSID}"
+							"variable": [
+								{
+									"key": "phone_number_sid",
+									"value": "247cc121-06d7-4259-baf3-bb525db7776a"
+								}
 							]
 						}
 					},
@@ -2129,137 +2284,6 @@
 		{
 			"name": "XML Bins",
 			"item": [
-				{
-					"name": "Create an XML Bin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "Name",
-									"value": "TestTestTest",
-									"description": "REQUIRED, A friendly name given to the LaML Bin to help distinguish and search for different Bins within your project\n",
-									"type": "text"
-								},
-								{
-									"key": "Contents",
-									"value": "<Response><Say>Hello, welcome to the Death Star. Your call is very important to us.</Say><Hangup /></Response>",
-									"description": "The contents of the LaML Bin",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins.JSON",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"LamlBins.JSON"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve an XML BIn",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/{BinSID}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"LamlBins",
-								"{BinSID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update an XML Bin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Test",
-									"description": "REQUIRED, A friendly name given to the LaML Bin to help distinguish and search for different Bins within your project.",
-									"type": "text"
-								},
-								{
-									"key": "contents",
-									"value": "",
-									"description": "The contents of the LaML Bin",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/{BinSID}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"LamlBins",
-								"{BinSID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete an XML Bin",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/{BinSID}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"LamlBins",
-								"{BinSID}"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "List All XML Bins",
 					"request": {
@@ -2290,6 +2314,154 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Retrieve an XML BIn",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"LamlBins",
+								":bin_id"
+							],
+							"variable": [
+								{
+									"key": "bin_id",
+									"value": "b0b118e1-fcd9-48cd-a2e3-28df3f4d014b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an XML Bin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Test",
+									"description": "REQUIRED, A friendly name given to the LaML Bin to help distinguish and search for different Bins within your project.",
+									"type": "text"
+								},
+								{
+									"key": "contents",
+									"value": "",
+									"description": "The contents of the LaML Bin",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"LamlBins",
+								":bin_id"
+							],
+							"variable": [
+								{
+									"key": "bin_id",
+									"value": "b0b118e1-fcd9-48cd-a2e3-28df3f4d014b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an XML Bin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Name",
+									"value": "This is a Laml Bin",
+									"description": "REQUIRED, A friendly name given to the LaML Bin to help distinguish and search for different Bins within your project\n",
+									"type": "text"
+								},
+								{
+									"key": "Contents",
+									"value": "<Response><Say>Hello, welcome to the Death Star. Your call is very important to us.</Say><Hangup /></Response>",
+									"description": "The contents of the LaML Bin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"LamlBins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an XML Bin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"LamlBins",
+								":bin_id"
+							],
+							"variable": [
+								{
+									"key": "bin_id",
+									"value": "b0b118e1-fcd9-48cd-a2e3-28df3f4d014b"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2297,79 +2469,12 @@
 			"name": "Media",
 			"item": [
 				{
-					"name": "Retrieve a Media Object",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSID}/Media/{MediaSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages",
-								"{MessageSID}",
-								"Media",
-								"{MediaSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete a Media Object",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSid}/Media/{MediaSid}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages",
-								"{MessageSid}",
-								"Media",
-								"{MediaSid}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "List all Media Objects",
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "{{Auth}}",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "{{Proj}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSID}/Media.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2381,8 +2486,8 @@
 								"Accounts",
 								"{{Proj}}",
 								"Messages",
-								"{MessageSID}",
-								"Media.json"
+								":message_sid",
+								"Media"
 							],
 							"query": [
 								{
@@ -2409,6 +2514,84 @@
 									"description": "Default 50, Max 1000",
 									"disabled": true
 								}
+							],
+							"variable": [
+								{
+									"key": "message_sid",
+									"value": "d31b33f7-8d93-49ac-8416-a169d01ecd4c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Media Object",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media/:media_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages",
+								":message_sid",
+								"Media",
+								":media_sid"
+							],
+							"variable": [
+								{
+									"key": "message_sid",
+									"value": "d31b33f7-8d93-49ac-8416-a169d01ecd4c"
+								},
+								{
+									"key": "media_sid",
+									"value": "2bfefcd4-ddd4-462a-b104-e936159255f8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Media Object",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media/:media_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages",
+								":message_sid",
+								"Media",
+								":media_sid"
+							],
+							"variable": [
+								{
+									"key": "message_sid",
+									"value": "d31b33f7-8d93-49ac-8416-a169d01ecd4c"
+								},
+								{
+									"key": "media_sid",
+									"value": "2bfefcd4-ddd4-462a-b104-e936159255f8"
+								}
 							]
 						}
 					},
@@ -2419,184 +2602,6 @@
 		{
 			"name": "Messages",
 			"item": [
-				{
-					"name": "Create a Message",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "To",
-									"value": "+1##########",
-									"description": "REQUIRED, The recipient of the outbound message formatted in E.164 format.",
-									"type": "text"
-								},
-								{
-									"key": "From",
-									"value": "+1##########",
-									"description": "REQUIRED, One of your SignalWire phone numbers or short codes used as the sender of the message. You must use one of your project's phone numbers or short codes that you have purchased from SignalWire and which are capable of messaging.",
-									"type": "text"
-								},
-								{
-									"key": "Body",
-									"value": "Test",
-									"description": "REQUIRED if MediaURL not present, max 1600 characters \n ",
-									"type": "text"
-								},
-								{
-									"key": "MediaUrl",
-									"value": "https://picsum.photos/id/2/200/300",
-									"description": "REQUIRED if Body not present, max 10 media URLs per message",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "ApplicationSid",
-									"value": "",
-									"description": "The SID of a SignalWire LaML application used to configure the message's MessageStatusCallback attribute. If ApplicationSid and StatusCallback are specified, StatusCallback will take precedence.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "MaxPrice",
-									"value": "",
-									"description": "The maximum price in USD acceptable for the message to be sent, maximum of four decimal places, i.e. 0.0075.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "StatusCallback",
-									"value": "",
-									"description": "A URL endpoint to receive callbacks each time the status of the message changes from queued, failed, sent, delivered or undelivered.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "ValidityPeriod",
-									"value": "",
-									"description": "The number of seconds a message will allow being queued before canceling.",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "MessagingServiceSid",
-									"value": "",
-									"description": "The ID of a SignalWire Number Group to be used to automatically choose the best number from the number group to improve deliverability and optimize throughput.",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve a Message",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages",
-								"{MessageSID}.json"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update a Message",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "Body",
-									"value": "",
-									"description": "Body must be empty to replace initial message body ",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages",
-								"{MessageSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete a Message",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/{MessageSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Messages",
-								"{MessageSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "List All Messages",
 					"request": {
@@ -2665,6 +2670,131 @@
 					"response": []
 				},
 				{
+					"name": "Retrieve a Message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages",
+								":message_id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": "51bf8561-0259-4543-b44f-906ed4777b7e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "To",
+									"value": "+13334445555",
+									"description": "REQUIRED, The recipient of the outbound message formatted in E.164 format.",
+									"type": "text"
+								},
+								{
+									"key": "From",
+									"value": "+18887776666",
+									"description": "REQUIRED, One of your SignalWire phone numbers or short codes used as the sender of the message. You must use one of your project's phone numbers or short codes that you have purchased from SignalWire and which are capable of messaging.",
+									"type": "text"
+								},
+								{
+									"key": "Body",
+									"value": "SignalWire Test Message",
+									"description": "REQUIRED if MediaURL not present, max 1600 characters \n ",
+									"type": "text"
+								},
+								{
+									"key": "MediaUrl",
+									"value": "https://picsum.photos/id/2/200/300",
+									"description": "REQUIRED if Body not present, max 10 media URLs per message",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ApplicationSid",
+									"value": "",
+									"description": "The SID of a SignalWire LaML application used to configure the message's MessageStatusCallback attribute. If ApplicationSid and StatusCallback are specified, StatusCallback will take precedence.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "MaxPrice",
+									"value": "",
+									"description": "The maximum price in USD acceptable for the message to be sent, maximum of four decimal places, i.e. 0.0075.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "StatusCallback",
+									"value": "",
+									"description": "A URL endpoint to receive callbacks each time the status of the message changes from queued, failed, sent, delivered or undelivered.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ValidityPeriod",
+									"value": "",
+									"description": "The number of seconds a message will allow being queued before canceling.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "MessagingServiceSid",
+									"value": "",
+									"description": "The ID of a SignalWire Number Group to be used to automatically choose the best number from the number group to improve deliverability and optimize throughput.",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create a Message with a Presigned URL",
 					"request": {
 						"method": "POST",
@@ -2674,13 +2804,13 @@
 							"urlencoded": [
 								{
 									"key": "To",
-									"value": "+1##########",
+									"value": "+12143334444",
 									"description": "REQUIRED, The recipient of the outbound message formatted in E.164 format.",
 									"type": "text"
 								},
 								{
 									"key": "From",
-									"value": "+1##########",
+									"value": "+12023334444",
 									"description": "REQUIRED, One of your SignalWire phone numbers or short codes used as the sender of the message. You must use one of your project's phone numbers or short codes that you have purchased from SignalWire and which are capable of messaging.",
 									"type": "text"
 								},
@@ -2734,7 +2864,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2745,7 +2875,78 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Messages.json"
+								"Messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Body",
+									"value": "",
+									"description": "Body must be empty to replace initial message body ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages",
+								":message_id"
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Messages",
+								":message_id"
+							],
+							"variable": [
+								{
+									"key": "message_id",
+									"value": "51bf8561-0259-4543-b44f-906ed4777b7e"
+								}
 							]
 						}
 					},
@@ -2762,7 +2963,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}/Members.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2774,8 +2975,58 @@
 								"Accounts",
 								"{{Proj}}",
 								"Queues",
-								"{QueueSID}",
-								"Members.json"
+								":queue_sid",
+								"Members"
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Queue Member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/:member_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Queues",
+								":queue_sid",
+								"Members",
+								":member_sid"
+							],
+							"query": [
+								{
+									"key": "Front",
+									"value": "false",
+									"description": "Retrieve the member that is at the front of the queue.\n ",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								},
+								{
+									"key": "member_sid",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -2791,7 +3042,7 @@
 							"urlencoded": [
 								{
 									"key": "Url",
-									"value": "https://YOURSPACENAME.signalwire.com/laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31",
+									"value": "https://bowl-test.signalwire.com/laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31",
 									"type": "text"
 								},
 								{
@@ -2802,7 +3053,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}/Members/{MemberSID}",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/:member_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2814,42 +3065,18 @@
 								"Accounts",
 								"{{Proj}}",
 								"Queues",
-								"{QueueSID}",
+								":queue_sid",
 								"Members",
-								"{MemberSID}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve a Queue Member",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}/Members/{MemberSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":member_sid"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Queues",
-								"{QueueSID}",
-								"Members",
-								"{MemberSID}.json"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "Front",
-									"value": "false",
-									"description": "Retrieve the member that is at the front of the queue.\n ",
-									"disabled": true
+									"key": "queue_sid",
+									"value": ""
+								},
+								{
+									"key": "member_sid",
+									"value": ""
 								}
 							]
 						}
@@ -2878,7 +3105,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}/Members/Front.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/Front",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2890,9 +3117,15 @@
 								"Accounts",
 								"{{Proj}}",
 								"Queues",
-								"{QueueSID}",
+								":queue_sid",
 								"Members",
-								"Front.json"
+								"Front"
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -2903,6 +3136,104 @@
 		{
 			"name": "Queues",
 			"item": [
+				{
+					"name": "List All Queues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Queues"
+							],
+							"query": [
+								{
+									"key": "FriendlyName",
+									"value": "TestQueue2",
+									"description": "Returns queues that exactly match the provided name.",
+									"disabled": true
+								},
+								{
+									"key": "MaxSize",
+									"value": null,
+									"description": "Returns queues that have the provided maximum size.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Queue ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Queues",
+								":queue_sid"
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Members Waiting in a Queue ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Queues",
+								":queue_sid",
+								"Members"
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Create a Queue",
 					"request": {
@@ -2927,7 +3258,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -2938,31 +3269,7 @@
 								"2010-04-01",
 								"Accounts",
 								"{{Proj}}",
-								"Queues.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve a Queue ",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Queues",
-								"{QueueSID}.json"
+								"Queues"
 							]
 						}
 					},
@@ -2991,7 +3298,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3003,68 +3310,12 @@
 								"Accounts",
 								"{{Proj}}",
 								"Queues",
-								"{QueueSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Members Waiting in a Queue ",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}/Members.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":queue_sid"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Queues",
-								"{QueueSID}",
-								"Members.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Queues",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Queues.json"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "FriendlyName",
-									"value": "TestQueue2",
-									"description": "Returns queues that exactly match the provided name.",
-									"disabled": true
-								},
-								{
-									"key": "MaxSize",
-									"value": null,
-									"description": "Returns queues that have the provided maximum size.",
-									"disabled": true
+									"key": "queue_sid",
+									"value": ""
 								}
 							]
 						}
@@ -3077,7 +3328,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/{QueueSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3089,7 +3340,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Queues",
-								"{QueueSID}.json"
+								":queue_sid"
+							],
+							"variable": [
+								{
+									"key": "queue_sid",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -3101,12 +3358,35 @@
 			"name": "Recording Transcriptions",
 			"item": [
 				{
+					"name": "List All Transcriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Transcriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Retrieve a Transcription",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/{TranscriptionSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/:transcription_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3118,30 +3398,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Transcriptions",
-								"{TranscriptionSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Transcriptions",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
+								":transcription_id"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Transcriptions.json"
+							"variable": [
+								{
+									"key": "transcription_id",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -3153,7 +3416,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/{TranscriptionSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/:transcription_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3165,7 +3428,13 @@
 								"Accounts",
 								"{{Proj}}",
 								"Transcriptions",
-								"{TranscriptionSID}.json"
+								":transcription_id"
+							],
+							"variable": [
+								{
+									"key": "transcription_id",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -3177,31 +3446,7 @@
 			"name": "Recordings",
 			"item": [
 				{
-					"name": "Retrieve a Recording",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/{RecordingSID}.json",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
-							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
-								"Recordings",
-								"{RecordingSID}.json"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List All Recordings on an Account",
+					"name": "List All Recordings",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -3256,12 +3501,12 @@
 					"response": []
 				},
 				{
-					"name": "Delete a Recording",
+					"name": "Retrieve a Recording",
 					"request": {
-						"method": "DELETE",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/{RecordingSID}.json",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/:recording_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3273,7 +3518,96 @@
 								"Accounts",
 								"{{Proj}}",
 								"Recordings",
-								"{RecordingSID}.json"
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "recording_id",
+									"value": "9197102d-8773-4ca4-b4e4-030ddf109e8b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Recording",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Status",
+									"value": "paused",
+									"description": "REQUIRED, status of recording. Options are paused, in-progress, and stopped.",
+									"type": "text"
+								},
+								{
+									"key": "PauseBehavior",
+									"value": "skip",
+									"description": "What to do while recording is paused. Options are skip and silence.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Auth}}/Calls/:call_id/Recordings/:recording_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Auth}}",
+								"Calls",
+								":call_id",
+								"Recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "call_id",
+									"value": ""
+								},
+								{
+									"key": "recording_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Recording",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/:recording_id",
+							"protocol": "https",
+							"host": [
+								"{{Space}}"
+							],
+							"path": [
+								"api",
+								"laml",
+								"2010-04-01",
+								"Accounts",
+								"{{Proj}}",
+								"Recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "recording_id",
+									"value": "9197102d-8773-4ca4-b4e4-030ddf109e8b"
+								}
 							]
 						}
 					},
@@ -3332,7 +3666,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/{CallSid}/Recordings",
+							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_id/Recordings",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
@@ -3344,51 +3678,14 @@
 								"Accounts",
 								"{{Proj}}",
 								"Calls",
-								"{CallSid}",
+								":call_id",
 								"Recordings"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update a Recording",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "Status",
-									"value": "paused",
-									"description": "REQUIRED, status of recording. Options are paused, in-progress, and stopped.",
-									"type": "text"
-								},
-								{
-									"key": "PauseBehavior",
-									"value": "skip",
-									"description": "What to do while recording is paused. Options are skip and silence.",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Auth}}/Calls/{CallSid}/Recordings/{RecordingSid}",
-							"protocol": "https",
-							"host": [
-								"{{Space}}"
 							],
-							"path": [
-								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Auth}}",
-								"Calls",
-								"{CallSid}",
-								"Recordings",
-								"{RecordingSid}"
+							"variable": [
+								{
+									"key": "call_id",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -3406,7 +3703,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"name\": \"My Token\",\n\"permissions\": [\"calling\", \"chat\", \"fax\", \"messaging\"]\n}",
+							"raw": "{\n    \"name\": \"My Token\",\n    \"permissions\": [\n        \"calling\",\n        \"chat\",\n        \"fax\",\n        \"messaging\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3485,17 +3782,14 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens/:token_id",
+							"raw": "https://{{Space}}/api/project/tokens/:token_id",
 							"protocol": "https",
 							"host": [
 								"{{Space}}"
 							],
 							"path": [
 								"api",
-								"laml",
-								"2010-04-01",
-								"Accounts",
-								"{{Proj}}",
+								"project",
 								"tokens",
 								":token_id"
 							],
