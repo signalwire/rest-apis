@@ -1,0 +1,25 @@
+meta {
+  name: List all Phone Numbers
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/phone_numbers?filter_name=Office Handler
+  body: none
+  auth: basic
+}
+
+query {
+  filter_name: Office Handler
+  ~filter_number: 
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

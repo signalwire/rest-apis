@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Stream
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{Space}}/api/video/streams/:stream_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

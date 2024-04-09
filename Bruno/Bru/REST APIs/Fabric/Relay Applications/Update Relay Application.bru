@@ -1,0 +1,26 @@
+meta {
+  name: Update Relay Application
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{Space}}/api/fabric/resources/relay_applications/:resource_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Changed Relay Application Name"
+  }
+}

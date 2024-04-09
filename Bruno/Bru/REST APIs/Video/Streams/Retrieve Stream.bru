@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Stream
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{Space}}/api/video/streams/:stream_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

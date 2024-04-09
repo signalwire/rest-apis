@@ -1,0 +1,26 @@
+meta {
+  name: Update a Conference
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_id
+  body: none
+  auth: basic
+}
+
+query {
+  ~Status: completed
+  ~AnnounceUrl: 
+  ~AnnounceMethod: 
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

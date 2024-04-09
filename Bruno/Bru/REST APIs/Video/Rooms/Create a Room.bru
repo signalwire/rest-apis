@@ -1,0 +1,35 @@
+meta {
+  name: Create a Room
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/video/rooms
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  name: postman_room
+  display_name: Postman
+  description: This room is for conversations about Postman
+  enable_room_previews: true
+  ~max_members: 1
+  ~quality: 
+  ~join_from: 
+  ~join_until: 
+  ~remove_at: 
+  ~remove_after_seconds_elapsed: 
+  ~layout: 
+  ~record_on_start: 
+}

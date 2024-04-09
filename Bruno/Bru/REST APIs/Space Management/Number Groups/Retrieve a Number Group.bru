@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve a Number Group
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/number_groups/:number_group_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

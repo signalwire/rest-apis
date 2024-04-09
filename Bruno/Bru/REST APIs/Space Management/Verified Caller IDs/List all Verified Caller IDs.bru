@@ -1,0 +1,25 @@
+meta {
+  name: List all Verified Caller IDs
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids
+  body: none
+  auth: basic
+}
+
+query {
+  ~filter_name: null
+  ~filter_number: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Purchase a Phone Number
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/phone_numbers/
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  { "number" : "+18887699751" }
+}

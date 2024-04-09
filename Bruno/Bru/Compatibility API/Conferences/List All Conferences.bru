@@ -1,0 +1,31 @@
+meta {
+  name: List All Conferences
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences
+  body: none
+  auth: basic
+}
+
+query {
+  ~DateCreated: 2020-08-27
+  ~DateCreated<: 2020-08-27
+  ~DateCreated>: 2020-08-27
+  ~DateUpdated: 2020-09-08
+  ~DateUpdated<: 2020-09-08
+  ~DateUpdated>: 2020-09-08
+  ~FriendlyName: Room 1234
+  ~Status: completed
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

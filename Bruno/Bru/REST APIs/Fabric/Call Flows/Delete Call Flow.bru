@@ -1,0 +1,20 @@
+meta {
+  name: Delete Call Flow
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/call_flows/:resource_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

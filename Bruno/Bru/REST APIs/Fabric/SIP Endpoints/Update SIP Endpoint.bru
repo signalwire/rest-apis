@@ -1,0 +1,27 @@
+meta {
+  name: Update SIP Endpoint
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{Space}}/api/fabric/resources/sip_endpoints/:resource_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Different SIP Endpoint Name",
+      "password": "1234"
+  }
+}

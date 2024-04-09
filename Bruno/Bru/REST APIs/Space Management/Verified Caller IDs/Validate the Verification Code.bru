@@ -1,0 +1,30 @@
+meta {
+  name: Validate the Verification Code
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids/:verified_caller_id/verification?verification_code=791364
+  body: json
+  auth: basic
+}
+
+query {
+  verification_code: 791364
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "verification_code": "799047"
+    }
+}

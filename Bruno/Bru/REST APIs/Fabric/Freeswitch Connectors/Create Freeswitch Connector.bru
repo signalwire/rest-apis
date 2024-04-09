@@ -1,0 +1,27 @@
+meta {
+  name: Create Freeswitch Connector
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/freeswitch_connectors
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Relay App",
+      "token": "dac2c865-fb97-4b59-8c24-d4cbb744caa4"
+  }
+}

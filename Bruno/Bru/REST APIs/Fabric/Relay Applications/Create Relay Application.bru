@@ -1,0 +1,27 @@
+meta {
+  name: Create Relay Application
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/relay_applications
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Relay App",
+      "reference": "office2"
+  }
+}

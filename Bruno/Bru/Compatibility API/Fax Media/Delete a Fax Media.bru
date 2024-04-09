@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Fax Media
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media/:media_sid
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

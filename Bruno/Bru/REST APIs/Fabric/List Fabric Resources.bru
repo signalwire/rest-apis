@@ -1,0 +1,24 @@
+meta {
+  name: List Fabric Resources
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources?type=relay_application
+  body: none
+  auth: basic
+}
+
+query {
+  type: relay_application
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Create a Recording
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_id/Recordings
+  body: multipartForm
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:multipart-form {
+  ~RecordingChannels: 
+  ~RecordingStatusCallback: 
+  ~RecordingStatusCallbackEvent: 
+  ~RecordingStatusCallbackMethod: 
+  ~RecordingTrack: 
+  ~Trim: 
+}

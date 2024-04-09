@@ -1,0 +1,20 @@
+meta {
+  name: Delete Dialogflow Agent
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/dialogflow_agents/:resource_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

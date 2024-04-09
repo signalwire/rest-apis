@@ -1,0 +1,27 @@
+meta {
+  name: Update API Token
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{Space}}/api/project/tokens/:token_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+  "name": "Updated Token",
+  "permissions": ["calling"]
+  }
+}

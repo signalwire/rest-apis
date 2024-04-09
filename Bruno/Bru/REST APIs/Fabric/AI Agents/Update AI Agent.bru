@@ -1,0 +1,26 @@
+meta {
+  name: Update AI Agent
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{Space}}/api/fabric/resources/ai_agents/:resource_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Different AI Agent Name"
+  }
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Create a Phone Number Assignment Order
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/registry/beta/campaigns/:campaign_id/orders
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "phone_numbers": [
+          "+12085812340",
+          "+12032981220"
+      ]
+  }
+}

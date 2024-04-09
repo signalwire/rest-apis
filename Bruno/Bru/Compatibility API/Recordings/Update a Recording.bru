@@ -1,0 +1,25 @@
+meta {
+  name: Update a Recording
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Auth}}/Calls/:call_id/Recordings/:recording_id
+  body: multipartForm
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:multipart-form {
+  Status: paused
+  PauseBehavior: skip
+}

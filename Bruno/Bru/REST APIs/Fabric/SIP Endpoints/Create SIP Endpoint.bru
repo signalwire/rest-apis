@@ -1,0 +1,28 @@
+meta {
+  name: Create SIP Endpoint
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/sip_endpoints
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "username": "myendpoint",
+      "password": 123456,
+      "caller_id": "SignalWire"
+  }
+}

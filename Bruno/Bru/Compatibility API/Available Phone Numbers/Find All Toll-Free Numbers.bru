@@ -1,0 +1,25 @@
+meta {
+  name: Find All Toll-Free Numbers
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/TollFree
+  body: none
+  auth: basic
+}
+
+query {
+  ~Contains: WIN
+  ~Contains: 604
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Create an Address
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/addresses
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "label": "SW",
+      "first_name": "Signal",
+      "last_name": "Wire",
+      "street_number": "228",
+      "street_name": "Hamilton Ave",
+      "address_type": "Apartment",
+      "address_number": "42",
+      "city": "Palo Alto",
+      "state": "CA",
+      "postal_code": "94301",
+      "country": "US"
+    }
+}

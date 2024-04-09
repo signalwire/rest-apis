@@ -1,0 +1,25 @@
+meta {
+  name: List all SIP Endpoints
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/endpoints/sip
+  body: none
+  auth: basic
+}
+
+query {
+  ~filter_username: null
+  ~filter_caller_id: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

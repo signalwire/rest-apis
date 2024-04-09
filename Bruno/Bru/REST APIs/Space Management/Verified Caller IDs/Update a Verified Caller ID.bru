@@ -1,0 +1,26 @@
+meta {
+  name: Update a Verified Caller ID
+  type: http
+  seq: 6
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids/:verified_caller_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Cassie's Updated Caller ID"
+    }
+}

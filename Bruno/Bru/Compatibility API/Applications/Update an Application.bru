@@ -1,0 +1,36 @@
+meta {
+  name: Update an Application
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  FriendlyName: ChangedApp
+  ~MessageStatusCallback: 
+  ~SmsFallbackMethod: 
+  ~SmsFallbackUrl: 
+  ~SmsMethod: 
+  ~SmsStatusCallback: 
+  ~SmsUrl: 
+  ~StatusCallback: 
+  ~StatusCallbackMethod: 
+  ~VoiceFallbackMethod: 
+  ~VoiceFallbackUrl: 
+  ~VoiceMethod: 
+  ~VoiceUrl: 
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Room
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{Space}}/api/video/rooms/:video_room_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

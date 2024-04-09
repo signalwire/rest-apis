@@ -1,0 +1,30 @@
+meta {
+  name: Request a MFA Token via Text
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/mfa/sms
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "to": "+12143334444",
+      "token_length": 6,
+      "max_attempts": 3,
+      "allow_alphas": false,
+      "valid_for": 3600
+  }
+}

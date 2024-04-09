@@ -1,0 +1,24 @@
+meta {
+  name: Create a Stream for a Conference
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/video/conference/:conference_id/streams
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  url: rtmp://broadcaster_url
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Verified Caller ID
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids/:verified_caller_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

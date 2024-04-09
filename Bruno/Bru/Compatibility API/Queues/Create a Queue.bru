@@ -1,0 +1,25 @@
+meta {
+  name: Create a Queue
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  FriendlyName: TestQueue3
+  ~MaxSize: 5
+}

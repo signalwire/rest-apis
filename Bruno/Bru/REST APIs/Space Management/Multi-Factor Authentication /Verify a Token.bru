@@ -1,0 +1,26 @@
+meta {
+  name: Verify a Token
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/mfa/:token_id/verify
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "token": "5944"
+    }
+}

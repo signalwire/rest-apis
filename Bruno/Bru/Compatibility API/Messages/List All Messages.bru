@@ -1,0 +1,30 @@
+meta {
+  name: List All Messages
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages.json
+  body: none
+  auth: basic
+}
+
+query {
+  ~PageSize: 75
+  ~To: %2b12143334444
+  ~From: %2b16083334444
+  ~Status: undelivered
+  ~DateSent: 2020-01-12
+  ~DateSent<: 2020-09-08
+  ~DateSent>: 2021-01-12
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

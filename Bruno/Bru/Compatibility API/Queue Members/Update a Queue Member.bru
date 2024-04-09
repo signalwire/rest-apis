@@ -1,0 +1,25 @@
+meta {
+  name: Update a Queue Member
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/:member_sid
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  Url: https://bowl-test.signalwire.com/laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31
+  Method: POST
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Create AI Agent
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/ai_agents
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "contents": "{ \"sections\": { \"main\": [ { \"ai\": { //... } } ] } }",
+      "name": "Booking Assistant"
+  }
+}

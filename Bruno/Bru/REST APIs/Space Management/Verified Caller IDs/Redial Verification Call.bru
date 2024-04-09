@@ -1,0 +1,20 @@
+meta {
+  name: Redial Verification Call
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids/:verified_caller_id/verification
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,34 @@
+meta {
+  name: Update a Room
+  type: http
+  seq: 5
+}
+
+put {
+  url: https://{{Space}}/api/video/rooms/:video_room_id
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  display_name: New Display Name
+  description: This is a different description from the first one
+  max_members: 5
+  ~quality: 
+  ~join_from: 
+  ~join_until: 
+  ~remove_at: 
+  ~remove_after_seconds_elapsed: 
+  ~layout: 
+  ~record_on_start: 
+  ~enable_room_previews: 
+}

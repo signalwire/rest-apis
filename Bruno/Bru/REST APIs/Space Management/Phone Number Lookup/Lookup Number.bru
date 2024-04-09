@@ -1,0 +1,26 @@
+meta {
+  name: Lookup Number
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/lookup/phone_number/:phone_number?include=carrier,cnam
+  body: none
+  auth: basic
+}
+
+query {
+  include: carrier,cnam
+  ~include: carrier
+  ~include: CNAM
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

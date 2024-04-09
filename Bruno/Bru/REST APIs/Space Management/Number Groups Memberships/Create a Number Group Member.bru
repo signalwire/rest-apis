@@ -1,0 +1,26 @@
+meta {
+  name: Create a Number Group Member
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/number_groups/:number_group_id/number_group_memberships
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "phone_number_id": "247cc121-06d7-4259-baf3-bb525db7776a"
+  }
+}

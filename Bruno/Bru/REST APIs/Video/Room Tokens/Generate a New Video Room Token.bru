@@ -1,0 +1,35 @@
+meta {
+  name: Generate a New Video Room Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/video/room_tokens
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  room_name: team_meeting_room
+  user_name: John Doe
+  ~permissions: 
+  ~join_from: 
+  ~join_until: 
+  ~remove_at: 
+  ~remove_after_seconds_elapsed: 
+  ~join_audio_muted: 
+  ~join_video_muted: 
+  ~auto_create_room: 
+  ~enable_room_previews: 
+  ~room_display_name: 
+}

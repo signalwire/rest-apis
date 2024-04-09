@@ -1,0 +1,32 @@
+meta {
+  name: Create Call Flow
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/call_flows
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "title": "A new six",
+      "relayml": {
+          "data": "some data"
+      },
+      "flow_data": {
+          "data": "some flow data"
+      }
+  }
+}

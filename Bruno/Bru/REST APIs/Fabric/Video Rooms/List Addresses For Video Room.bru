@@ -1,0 +1,20 @@
+meta {
+  name: List Addresses For Video Room
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/video_rooms/:resource_id/addresses
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

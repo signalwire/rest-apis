@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Domain Application
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/relay/rest/domain_applications/:domain_application_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Queue
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
