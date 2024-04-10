@@ -1,0 +1,27 @@
+meta {
+  name: Update Token
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens/:token_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+  "name": "Update",
+  "permissions": ["calling"]
+  }
+}

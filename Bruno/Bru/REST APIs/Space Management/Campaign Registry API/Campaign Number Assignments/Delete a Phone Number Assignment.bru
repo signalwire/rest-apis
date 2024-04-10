@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Phone Number Assignment
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/relay/rest/registry/beta/numbers/:number_assignment_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

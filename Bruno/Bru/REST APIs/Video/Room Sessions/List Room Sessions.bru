@@ -1,0 +1,20 @@
+meta {
+  name: List Room Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/video/room_sessions
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

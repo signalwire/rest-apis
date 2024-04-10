@@ -1,0 +1,20 @@
+meta {
+  name: List Streams by Room ID
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/video/rooms/:room_id/streams
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

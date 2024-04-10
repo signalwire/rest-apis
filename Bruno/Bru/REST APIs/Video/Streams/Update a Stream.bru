@@ -1,0 +1,24 @@
+meta {
+  name: Update a Stream
+  type: http
+  seq: 6
+}
+
+put {
+  url: https://{{Space}}/api/video/streams/:stream_id
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  url: rtmp://broadcaster_url
+}

@@ -1,0 +1,24 @@
+meta {
+  name: List a Room Session-s Recordings
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/video/room_sessions/:session_id/recordings
+  body: none
+  auth: basic
+}
+
+query {
+  ~media_ttl: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

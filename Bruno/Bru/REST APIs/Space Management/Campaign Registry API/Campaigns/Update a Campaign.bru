@@ -1,0 +1,26 @@
+meta {
+  name: Update a Campaign
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/registry/beta/campaigns/:campaign_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Campaign"
+  }
+}

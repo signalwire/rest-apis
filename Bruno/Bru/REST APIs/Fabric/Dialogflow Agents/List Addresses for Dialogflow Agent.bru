@@ -1,0 +1,20 @@
+meta {
+  name: List Addresses for Dialogflow Agent
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/dialogflow_agents/:resource_id/addresses
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

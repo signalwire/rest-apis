@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Room Recording
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{Space}}/api/video/room_recordings/:recording_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

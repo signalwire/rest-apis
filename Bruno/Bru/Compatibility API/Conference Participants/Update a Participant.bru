@@ -1,0 +1,29 @@
+meta {
+  name: Update a Participant
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  ~AnnounceMethod: 
+  ~AnnounceUrl: 
+  ~Hold: 
+  ~HoldMethod: 
+  ~HoldUrl: 
+  ~Muted: true
+}

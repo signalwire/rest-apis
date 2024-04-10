@@ -1,0 +1,32 @@
+meta {
+  name: Create a SIP Endpoint
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/endpoints/sip
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "username" : "sip_endpoints",
+      "password" : "secretsecret",
+      "caller_id" : "SignalWire",
+      "call_handler": "laml_webhooks",
+      "call_request_url": "https://postman.signalwire.com/laml-bins/1231232131232ac6627",
+      "call_fallback_url": "https://postman.signalwire.com/laml-bins/123132132132123-746137ac6627?foo=bar",
+      "call_status_callback_url": "https://yourwebsite.com/some_handler"
+    }
+}

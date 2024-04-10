@@ -1,0 +1,24 @@
+meta {
+  name: Retrieve Recording
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/video/room_recordings/:recording_id
+  body: none
+  auth: basic
+}
+
+query {
+  ~media_ttl: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

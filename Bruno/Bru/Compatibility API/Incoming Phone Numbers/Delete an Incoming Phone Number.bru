@@ -1,0 +1,20 @@
+meta {
+  name: Delete an Incoming Phone Number
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,24 @@
+meta {
+  name: List All Phone Number Assignments
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/registry/beta/campaigns/:campaign_id/numbers
+  body: none
+  auth: basic
+}
+
+query {
+  ~filter_state: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

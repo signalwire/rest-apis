@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve a Campaign
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/registry/beta/campaigns/:campaign_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Create API Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Token",
+      "permissions": [
+          "calling",
+          "chat",
+          "fax",
+          "messaging"
+      ]
+  }
+}

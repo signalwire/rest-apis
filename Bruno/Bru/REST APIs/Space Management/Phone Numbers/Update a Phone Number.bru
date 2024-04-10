@@ -1,0 +1,27 @@
+meta {
+  name: Update a Phone Number
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/phone_numbers/:phone_number_sid
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  { 
+      "name" : "Update This Number",
+      "call_handler": "relay_script"
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: List Fabric Addresses
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/addresses?page_size=2
+  body: none
+  auth: basic
+}
+
+query {
+  page_size: 2
+  ~display_name: New Name
+  ~type: room
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

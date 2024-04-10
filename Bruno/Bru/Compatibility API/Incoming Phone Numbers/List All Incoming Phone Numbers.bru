@@ -1,0 +1,27 @@
+meta {
+  name: List All Incoming Phone Numbers
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers
+  body: none
+  auth: basic
+}
+
+query {
+  ~Beta: null
+  ~FriendlyName: null
+  ~Origin: null
+  ~PhoneNumber: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

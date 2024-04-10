@@ -1,0 +1,35 @@
+meta {
+  name: Create a Brand
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  name: TEST Name
+  company_name: TEST Company
+  contact_email: TEST email
+  contact_phone: TEST phone
+  ein_issuing_country: US
+  legal_entity_type: NON_PROFIT
+  ein: 12-3456789
+  company_address: 1234 fake dr, faketown, New Fakeshire
+  company_website: https://signalwire.com/
+  ~company_vertical: 
+  ~csp_brand_reference: 
+  ~csp_self_registered: 
+}

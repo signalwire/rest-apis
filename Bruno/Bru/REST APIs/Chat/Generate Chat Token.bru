@@ -1,0 +1,44 @@
+meta {
+  name: Generate Chat Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/chat/tokens
+  body: json
+  auth: basic
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+       "channels": {
+            "Support": {
+                 "read": true,
+                 "write": true
+            },
+            "Sales": {
+                 "read": true,
+                 "write": true
+            }
+       },
+       "state": {
+            "newKey": "New Value"
+       },
+       "ttl": 15,
+       "member_id": "John Doe"
+  }
+}

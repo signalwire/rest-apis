@@ -1,0 +1,33 @@
+meta {
+  name: List Calls
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls
+  body: none
+  auth: basic
+}
+
+query {
+  ~PageSize: 5
+  ~page: 1
+  ~ParentCallSid: 7c175a76-4bfc-4cea-93aa-4966f89b4be1
+  ~Status: failed
+  ~To: %2b12143334444
+  ~From: %2b12143334444
+  ~StartTime<: 2020-08-10
+  ~StartTime>: 2020-08-10
+  ~StartTime: 2020-08-10
+  ~EndTime: 2020-08-10
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

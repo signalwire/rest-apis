@@ -1,0 +1,27 @@
+meta {
+  name: Create a Verified Caller ID
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/verified_caller_ids
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Number",
+      "number": "+12143334444"
+  }
+}

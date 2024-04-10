@@ -1,0 +1,20 @@
+meta {
+  name: Reset a Conference Token
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/video/conference_tokens/:conference_token_id/reset
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

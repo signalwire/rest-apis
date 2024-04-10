@@ -1,0 +1,32 @@
+meta {
+  name: Create a Message with a Presigned URL
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  To: +12143334444
+  From: +12023334444
+  MediaUrl: Presigned URL goes here
+  ~Body: Test Message
+  ~ApplicationSid: 
+  ~MaxPrice: 
+  ~StatusCallback: 
+  ~ValidityPeriod: 
+  ~MessagingServiceSid: 
+}

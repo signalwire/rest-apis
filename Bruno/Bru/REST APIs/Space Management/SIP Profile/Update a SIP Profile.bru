@@ -1,0 +1,27 @@
+meta {
+  name: Update a SIP Profile
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/sip_profile
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "default_codecs" : ["OPUS"],
+      "default_send_as" : "+16052525353"
+    }
+}

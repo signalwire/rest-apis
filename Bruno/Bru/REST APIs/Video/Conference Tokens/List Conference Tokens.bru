@@ -1,0 +1,20 @@
+meta {
+  name: List Conference Tokens
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/video/conferences/:conference_id/conference_tokens
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

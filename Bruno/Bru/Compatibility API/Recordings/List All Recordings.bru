@@ -1,0 +1,28 @@
+meta {
+  name: List All Recordings
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings.json
+  body: none
+  auth: basic
+}
+
+query {
+  ~CallSid: null
+  ~ConferenceSid: null
+  ~DateCreated: 2020-09-11
+  ~DateCreated<: 2020-09-11
+  ~DateCreated>: 2020-09-11
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

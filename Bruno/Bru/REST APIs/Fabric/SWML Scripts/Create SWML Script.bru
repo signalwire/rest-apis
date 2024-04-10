@@ -1,0 +1,31 @@
+meta {
+  name: Create SWML Script
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/swml_scripts
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My SWML Script",
+      "contents": {
+          "call": {
+              "project_id": "593faa6b-0d9f-48ea-81f1-10a142e87158"
+          }
+      }
+  }
+}

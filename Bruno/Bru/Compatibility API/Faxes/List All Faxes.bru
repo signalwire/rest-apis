@@ -1,0 +1,27 @@
+meta {
+  name: List All Faxes
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes
+  body: none
+  auth: basic
+}
+
+query {
+  ~date_created_after: 2020-09-08
+  ~date_created_on_or_before: 2020-09-09
+  ~to: +12143334444
+  ~from: +12143334444
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

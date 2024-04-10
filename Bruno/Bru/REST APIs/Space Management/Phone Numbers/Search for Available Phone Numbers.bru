@@ -1,0 +1,31 @@
+meta {
+  name: Search for Available Phone Numbers
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/phone_numbers/search?number_type=toll-free
+  body: none
+  auth: basic
+}
+
+query {
+  number_type: toll-free
+  ~areacode: 
+  ~starts_with: 
+  ~contains: 214
+  ~ends_with: 
+  ~max_results: 
+  ~region: 
+  ~city: 
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

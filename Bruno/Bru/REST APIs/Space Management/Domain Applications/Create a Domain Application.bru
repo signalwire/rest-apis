@@ -1,0 +1,34 @@
+meta {
+  name: Create a Domain Application
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/domain_applications
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "This is a name",
+      "identifier": "thisisaname",
+      "call_handler": "relay_context",
+      "call_relay_context": "incoming",
+      "ip_auth_enabled": true,
+      "ip_auth": ["8.8.8.8", "4.4.4.4"],
+      "encryption": "required",
+      "codecs": ["PCMU", "PCMA"],
+      "ciphers": ["AEAD_AES_256_GCM_8"]
+    }
+}

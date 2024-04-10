@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Number Group Member
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{Space}}/api/relay/rest/number_group_memberships/:number_group_member_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

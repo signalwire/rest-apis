@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Freeswitch Connector
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/freeswitch_connectors/:resource_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

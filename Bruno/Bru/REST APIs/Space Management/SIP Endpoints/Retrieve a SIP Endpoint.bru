@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve a SIP Endpoint
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/endpoints/sip/:sip_endpoint_id
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

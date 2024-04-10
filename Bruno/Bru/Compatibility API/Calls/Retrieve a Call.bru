@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve a Call
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid_here
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

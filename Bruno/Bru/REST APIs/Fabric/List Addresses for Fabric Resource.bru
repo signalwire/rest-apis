@@ -1,0 +1,20 @@
+meta {
+  name: List Addresses for Fabric Resource
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/:resource_id/addresses
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

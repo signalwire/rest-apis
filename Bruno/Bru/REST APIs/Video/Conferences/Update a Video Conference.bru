@@ -1,0 +1,31 @@
+meta {
+  name: Update a Video Conference
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{Space}}/api/video/conferences/:conference_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "name": "new_name",
+    "display_name": "My Conference's New Name",
+    "description": "My conference's new description",
+    "quality": "1080p",
+    "record_on_start": false,
+    "enable_room_previews": false
+  }
+}

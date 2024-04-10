@@ -1,0 +1,25 @@
+meta {
+  name: List all Brands
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands
+  body: none
+  auth: basic
+}
+
+query {
+  ~filter_name: null
+  ~filter_state: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

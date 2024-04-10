@@ -1,0 +1,20 @@
+meta {
+  name: List Streams by Conference ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/video/conferences/:conference_id/streams
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

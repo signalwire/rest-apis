@@ -1,0 +1,43 @@
+meta {
+  name: Create a Video Conference
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/video/conferences
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "name": "my_room",
+    "display_name": "My Conference's Name",
+    "description": "This is a description for the conference",
+    "quality": "720p",
+    "layout": "grid-responsive",
+    "size": "small",
+    "record_on_start": true,
+    "enable_room_previews": true,
+    "dark_primary": "#044EF4",
+    "dark_background": "#FFFFFF",
+    "dark_foreground": "#1D2127",
+    "dark_success": "#17BB58",
+    "dark_negative": "#F42C50",
+    "light_primary": "#044EF4",
+    "light_background": "#FFFFFF",
+    "light_foreground": "#1D2127",
+    "light_success": "#17BB58",
+    "light_negative": "#F42C50"
+  }
+}

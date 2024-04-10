@@ -1,0 +1,43 @@
+meta {
+  name: Create an Incoming Phone Number
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  FriendlyName: My New Number
+  PhoneNumber: +17199413749
+  ~AreaCode: 719
+  ~IdentitySid: 
+  ~SmsApplicationSid: 
+  ~SmsFallbackMethod: 
+  ~SmsFallbackUrl: 
+  ~SmsMethod: 
+  ~SmsUrl: 
+  ~StatusCallback: 
+  ~StatusCallbackMethod: 
+  ~TrunkSid: 
+  ~VoiceApplicationSid: 
+  ~VoiceCallerIdLookup: 
+  ~VoiceFallbackMethod: 
+  ~VoiceFallbackUrl: 
+  ~VoiceMethod: 
+  ~VoiceUrl: 
+  ~VoiceReceiveMode: 
+  ~AddressSid: 
+}

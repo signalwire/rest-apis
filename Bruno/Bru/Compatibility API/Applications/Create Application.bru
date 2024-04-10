@@ -1,0 +1,36 @@
+meta {
+  name: Create Application
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  FriendlyName: App3
+  ~MessageStatusCallback: 
+  ~SmsFallbackMethod: 
+  ~SmsFallbackUrl: 
+  ~SmsMethod: 
+  ~SmsStatusCallback: 
+  ~SmsUrl: 
+  ~StatusCallback: 
+  ~StatusCallbackMethod: 
+  ~VoiceCallerIdLookup: 
+  ~VoiceFallbackUrl: 
+  ~VoiceMethod: 
+  ~VoiceUrl: 
+}

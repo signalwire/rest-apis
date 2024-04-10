@@ -1,0 +1,27 @@
+meta {
+  name: Create a Number Group
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/number_groups
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "Number Group 2",
+      "sticky_sender": true
+  }
+}

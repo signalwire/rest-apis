@@ -1,0 +1,26 @@
+meta {
+  name: Update a Number Group
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{Space}}/api/relay/rest/number_groups/:number_group_id
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Updated Number Group"
+  }
+}

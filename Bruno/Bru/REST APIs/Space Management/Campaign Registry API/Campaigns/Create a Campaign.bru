@@ -1,0 +1,47 @@
+meta {
+  name: Create a Campaign
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands/:brand_id/campaigns
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "name": "My Campaign",
+      "sms_use_case": "MIXED",
+      "sub_use_cases": [
+          "MARKETING",
+          "CUSTOMER_CARE"
+      ],
+      "description": "this is a description about what your campaign will do",
+      "sample1": "this is a long sample message",
+      "sample2": "this is a long sample message",
+      "dynamic_templates": "string",
+      "message_flow": "Users will opt in to receive messages from their doctor through a written form and we will send them an opt in message. Appointment reminders will then be sent ahead of their appointments.",
+      "opt_in_message": "Thanks for subscribing. Reply STOP to cancel at any time.",
+      "opt_out_message": "You have successfully been opted out. Reply START to opt back in at any time. ",
+      "help_message": "You have successfully been opted out. Reply SUBSCRIBE to opt back in at any time. ",
+      "number_pooling_required": true,
+      "number_pooling_per_campaign": "We have customer reps in every state and they each need their own number with local area code.",
+      "direct_lending": true,
+      "embedded_link": false,
+      "embedded_phone": false,
+      "age_gated_content": true,
+      "lead_generation": true,
+      "terms_and_conditions": true
+  }
+}

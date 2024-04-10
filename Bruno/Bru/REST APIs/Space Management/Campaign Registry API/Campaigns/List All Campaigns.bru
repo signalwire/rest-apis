@@ -1,0 +1,20 @@
+meta {
+  name: List All Campaigns
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands/:brand_id/campaigns
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

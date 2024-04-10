@@ -1,0 +1,20 @@
+meta {
+  name: List Call Flow Versions
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/call_flows/:resource_id/versions
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

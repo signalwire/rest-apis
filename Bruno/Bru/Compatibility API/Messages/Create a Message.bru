@@ -1,0 +1,32 @@
+meta {
+  name: Create a Message
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  To: +13334445555
+  From: +18887776666
+  Body: SignalWire Test Message
+  ~MediaUrl: https://picsum.photos/id/2/200/300
+  ~ApplicationSid: 
+  ~MaxPrice: 
+  ~StatusCallback: 
+  ~ValidityPeriod: 
+  ~MessagingServiceSid: 
+}

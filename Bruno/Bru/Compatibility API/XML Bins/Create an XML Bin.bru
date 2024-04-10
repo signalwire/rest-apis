@@ -1,0 +1,25 @@
+meta {
+  name: Create an XML Bin
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:form-urlencoded {
+  Name: This is a Laml Bin
+  Contents: <Response><Say>Hello, welcome to the Death Star. Your call is very important to us.</Say><Hangup /></Response>
+}

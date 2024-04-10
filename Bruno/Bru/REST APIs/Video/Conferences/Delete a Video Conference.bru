@@ -1,0 +1,24 @@
+meta {
+  name: Delete a Video Conference
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/video/conferences/:conference_id
+  body: none
+  auth: basic
+}
+
+query {
+  ~include_active_session: true
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

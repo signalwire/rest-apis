@@ -1,0 +1,3461 @@
+{
+  "name": "Compatibility API",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "Accounts",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create Subprojects",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "Subproject Name",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Find an Account by ID",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/:account_id",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Accounts",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts?FriendlyName=Main",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "FriendlyName",
+                "value": "Main",
+                "enabled": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update Account",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/:account_id",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "CallForwarding",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Applications",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create Application",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "App3",
+                  "enabled": true
+                },
+                {
+                  "name": "MessageStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceCallerIdLookup",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceUrl",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete an Application",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "",
+                "value": "",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Applications",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "FriendlyName",
+                "value": "App1",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve an Application",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update an Application",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Applications/:application_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "ChangedApp",
+                  "enabled": true
+                },
+                {
+                  "name": "MessageStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceUrl",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Calls",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create a Call",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "From",
+                  "value": "+12003004000",
+                  "enabled": true
+                },
+                {
+                  "name": "To",
+                  "value": "+13338889999",
+                  "enabled": true
+                },
+                {
+                  "name": "Url",
+                  "value": "https://some_url.com/call",
+                  "enabled": true
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "https://webhook.site/bbeba55e-d257-48ef-8b0b-78511da278af",
+                  "enabled": true
+                },
+                {
+                  "name": "StatusCallbackEvent",
+                  "value": "completed",
+                  "enabled": true
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "POST",
+                  "enabled": true
+                },
+                {
+                  "name": "ApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Record",
+                  "value": "true",
+                  "enabled": false
+                },
+                {
+                  "name": "CallerId",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "FallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "FallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MachineDetection",
+                  "value": "DetectMessageEnd",
+                  "enabled": false
+                },
+                {
+                  "name": "MachineDetectionTimeout",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Method",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "RecordingChannels",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "RecordingStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "RecordingStatusCallbackEvent",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "RecordingStatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SipAuthUsername",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SipAuthPassword",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SendDigits",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Timeout",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Trim",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MaxPricePerMinute",
+                  "value": "10",
+                  "enabled": false
+                },
+                {
+                  "name": "AsyncAmd",
+                  "value": "true",
+                  "enabled": false
+                },
+                {
+                  "name": "AsyncAmdStatusCallback",
+                  "value": "https://webhook.site/31cebf03-dc5f-49dc-b9fb-4ae7d9665c5a",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete A Call",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List Calls",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "PageSize",
+                "value": "5",
+                "enabled": false
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "enabled": false
+              },
+              {
+                "name": "ParentCallSid",
+                "value": "7c175a76-4bfc-4cea-93aa-4966f89b4be1",
+                "enabled": false
+              },
+              {
+                "name": "Status",
+                "value": "failed",
+                "enabled": false
+              },
+              {
+                "name": "To",
+                "value": "%2b12143334444",
+                "enabled": false
+              },
+              {
+                "name": "From",
+                "value": "%2b12143334444",
+                "enabled": false
+              },
+              {
+                "name": "StartTime<",
+                "value": "2020-08-10",
+                "enabled": false
+              },
+              {
+                "name": "StartTime>",
+                "value": "2020-08-10",
+                "enabled": false
+              },
+              {
+                "name": "StartTime",
+                "value": "2020-08-10",
+                "enabled": false
+              },
+              {
+                "name": "EndTime",
+                "value": "2020-08-10",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Call",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid_here",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Call",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Status",
+                  "value": "completed",
+                  "enabled": true
+                },
+                {
+                  "name": "FallbackMethod",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "FallbackUrl",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "Method",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "Url",
+                  "value": "",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Available Phone Numbers",
+      "items": [
+        {
+          "type": "http",
+          "name": "Find All Toll-Free Numbers",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/TollFree",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Contains",
+                "value": "WIN",
+                "enabled": false
+              },
+              {
+                "name": "Contains",
+                "value": "604",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "List Available Phone Number Resources by Country",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}}/AvailablePhoneNumbers/:country",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List Available Phone Number Resources",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Search for Local Available Numbers",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/AvailablePhoneNumbers/US/Local?InRegion=LA",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "InRegion",
+                "value": "LA",
+                "enabled": true
+              },
+              {
+                "name": "AreaCode",
+                "value": "508",
+                "enabled": false
+              },
+              {
+                "name": "Contains",
+                "value": "682",
+                "enabled": false
+              },
+              {
+                "name": "Beta",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "ExcludeAllAddressRequired",
+                "value": "true",
+                "enabled": false
+              },
+              {
+                "name": "ExcludeForeignAddressRequired",
+                "value": "true",
+                "enabled": false
+              },
+              {
+                "name": "ExcludeLocalAddressRequired",
+                "value": "true",
+                "enabled": false
+              },
+              {
+                "name": "FaxEnabled",
+                "value": "true",
+                "enabled": false
+              },
+              {
+                "name": "MmsEnabled",
+                "value": "false",
+                "enabled": false
+              },
+              {
+                "name": "SmsEnabled",
+                "value": "false",
+                "enabled": false
+              },
+              {
+                "name": "VoiceEnabled",
+                "value": "false",
+                "enabled": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Conference Participants",
+      "items": [
+        {
+          "type": "http",
+          "name": "Delete a Participant",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Active Participants",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Muted",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "Hold",
+                "value": "null",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Participant",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Participant",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants/:participant_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "AnnounceMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "AnnounceUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Hold",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "HoldMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "HoldUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Muted",
+                  "value": "true",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Conferences",
+      "items": [
+        {
+          "type": "http",
+          "name": "List All Conferences",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "DateCreated",
+                "value": "2020-08-27",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated<",
+                "value": "2020-08-27",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated>",
+                "value": "2020-08-27",
+                "enabled": false
+              },
+              {
+                "name": "DateUpdated",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "DateUpdated<",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "DateUpdated>",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "FriendlyName",
+                "value": "Room 1234",
+                "enabled": false
+              },
+              {
+                "name": "Status",
+                "value": "completed",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Conference",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Conference",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_id",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Status",
+                "value": "completed",
+                "enabled": false
+              },
+              {
+                "name": "AnnounceUrl",
+                "value": "",
+                "enabled": false
+              },
+              {
+                "name": "AnnounceMethod",
+                "value": "",
+                "enabled": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Fax Media",
+      "items": [
+        {
+          "type": "http",
+          "name": "Delete a Fax Media",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media/:media_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Media of a Fax",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Fax Media Instance",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid/Media/:media_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "",
+                "value": "null",
+                "enabled": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Faxes",
+      "items": [
+        {
+          "type": "http",
+          "name": "Delete a Fax",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Faxes",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "date_created_after",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "date_created_on_or_before",
+                "value": "2020-09-09",
+                "enabled": false
+              },
+              {
+                "name": "to",
+                "value": "+12143334444",
+                "enabled": false
+              },
+              {
+                "name": "from",
+                "value": "+12143334444",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Fax",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Send a Fax",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "To",
+                  "value": "+18003334444",
+                  "enabled": true
+                },
+                {
+                  "name": "MediaUrl",
+                  "value": "https://www.dropbox.com/document.pdf?dl=1",
+                  "enabled": true
+                },
+                {
+                  "name": "From",
+                  "value": "+12223334444",
+                  "enabled": true
+                },
+                {
+                  "name": "Quality",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StoreMedia",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "Ttl",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Fax",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Status",
+                  "value": "canceled",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Incoming Phone Numbers",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create an Incoming Phone Number",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "My New Number",
+                  "enabled": true
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": "+17199413749",
+                  "enabled": true
+                },
+                {
+                  "name": "AreaCode",
+                  "value": "719",
+                  "enabled": false
+                },
+                {
+                  "name": "IdentitySid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "TrunkSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceCallerIdLookup",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceReceiveMode",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "AddressSid",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete an Incoming Phone Number",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Incoming Phone Numbers",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Beta",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "FriendlyName",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "Origin",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "PhoneNumber",
+                "value": "null",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve an Incoming Phone Number",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update an Incoming Phone Number",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/IncomingPhoneNumbers/:phone_number_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "This is a name change!",
+                  "enabled": true
+                },
+                {
+                  "name": "AddressSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "EmergencyAddressSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "IdentitySid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "SmsUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "TrunkSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceCallerIdLookup",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceFallbackUrl",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceReceiveMode",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "VoiceUrl",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Media",
+      "items": [
+        {
+          "type": "http",
+          "name": "Delete a Media Object",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media/:media_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List all Media Objects",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "DateCreated",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated<",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated>",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "PageSize",
+                "value": "52",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Media Object",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_sid/Media/:media_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Messages",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create a Message with a Presigned URL",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "To",
+                  "value": "+12143334444",
+                  "enabled": true
+                },
+                {
+                  "name": "From",
+                  "value": "+12023334444",
+                  "enabled": true
+                },
+                {
+                  "name": "MediaUrl",
+                  "value": "Presigned URL goes here",
+                  "enabled": true
+                },
+                {
+                  "name": "Body",
+                  "value": "Test Message",
+                  "enabled": false
+                },
+                {
+                  "name": "ApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MaxPrice",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "ValidityPeriod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MessagingServiceSid",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Create a Message",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "To",
+                  "value": "+13334445555",
+                  "enabled": true
+                },
+                {
+                  "name": "From",
+                  "value": "+18887776666",
+                  "enabled": true
+                },
+                {
+                  "name": "Body",
+                  "value": "SignalWire Test Message",
+                  "enabled": true
+                },
+                {
+                  "name": "MediaUrl",
+                  "value": "https://picsum.photos/id/2/200/300",
+                  "enabled": false
+                },
+                {
+                  "name": "ApplicationSid",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MaxPrice",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "StatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "ValidityPeriod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "name": "MessagingServiceSid",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete a Message",
+          "seq": 6,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Messages",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages.json",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "PageSize",
+                "value": "75",
+                "enabled": false
+              },
+              {
+                "name": "To",
+                "value": "%2b12143334444",
+                "enabled": false
+              },
+              {
+                "name": "From",
+                "value": "%2b16083334444",
+                "enabled": false
+              },
+              {
+                "name": "Status",
+                "value": "undelivered",
+                "enabled": false
+              },
+              {
+                "name": "DateSent",
+                "value": "2020-01-12",
+                "enabled": false
+              },
+              {
+                "name": "DateSent<",
+                "value": "2020-09-08",
+                "enabled": false
+              },
+              {
+                "name": "DateSent>",
+                "value": "2021-01-12",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Message",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "",
+                "value": "",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Message",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Messages/:message_id",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Body",
+                  "value": "",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Queue Members",
+      "items": [
+        {
+          "type": "http",
+          "name": "Dequeue First Queue Member",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/Front",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Url",
+                  "value": "",
+                  "enabled": true
+                },
+                {
+                  "name": "Method",
+                  "value": "POST",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Queue Members",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Queue Member",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/:member_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Front",
+                "value": "false",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Queue Member",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members/:member_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Url",
+                  "value": "https://bowl-test.signalwire.com/laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31",
+                  "enabled": true
+                },
+                {
+                  "name": "Method",
+                  "value": "POST",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Queues",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create a Queue",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "TestQueue3",
+                  "enabled": true
+                },
+                {
+                  "name": "MaxSize",
+                  "value": "5",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete a Queue",
+          "seq": 6,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Queues",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "FriendlyName",
+                "value": "TestQueue2",
+                "enabled": false
+              },
+              {
+                "name": "MaxSize",
+                "value": "null",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve Members Waiting in a Queue",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Queue",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Queue",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "FriendlyName",
+                  "value": "QueueTest10",
+                  "enabled": true
+                },
+                {
+                  "name": "MaxSize",
+                  "value": "10",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Recording Transcriptions",
+      "items": [
+        {
+          "type": "http",
+          "name": "Delete a Recording Transcription",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/:transcription_id",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Transcriptions",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Transcription",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Transcriptions/:transcription_id",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Recordings",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create a Recording",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_id/Recordings",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "multipartForm",
+              "formUrlEncoded": [],
+              "multipartForm": [
+                {
+                  "type": "text",
+                  "name": "RecordingChannels",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "type": "text",
+                  "name": "RecordingStatusCallback",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "type": "text",
+                  "name": "RecordingStatusCallbackEvent",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "type": "text",
+                  "name": "RecordingStatusCallbackMethod",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "type": "text",
+                  "name": "RecordingTrack",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "type": "text",
+                  "name": "Trim",
+                  "value": "",
+                  "enabled": false
+                }
+              ]
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete a Recording",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/:recording_id",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All Recordings",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings.json",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "CallSid",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "ConferenceSid",
+                "value": "null",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated",
+                "value": "2020-09-11",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated<",
+                "value": "2020-09-11",
+                "enabled": false
+              },
+              {
+                "name": "DateCreated>",
+                "value": "2020-09-11",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve a Recording",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Recordings/:recording_id",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update a Recording",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Auth}}/Calls/:call_id/Recordings/:recording_id",
+            "method": "PUT",
+            "headers": [],
+            "body": {
+              "mode": "multipartForm",
+              "formUrlEncoded": [],
+              "multipartForm": [
+                {
+                  "type": "text",
+                  "name": "Status",
+                  "value": "paused",
+                  "enabled": true
+                },
+                {
+                  "type": "text",
+                  "name": "PauseBehavior",
+                  "value": "skip",
+                  "enabled": true
+                }
+              ]
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Tokens",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create API Token",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n    \"name\": \"My Token\",\n    \"permissions\": [\n        \"calling\",\n        \"chat\",\n        \"fax\",\n        \"messaging\"\n    ]\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete Token",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/project/tokens/:token_id",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n\"name\": \"Updated Token\",\n\"permissions\": [\"calling\"]\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update Token",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/tokens/:token_id",
+            "method": "PATCH",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n\"name\": \"Update\",\n\"permissions\": [\"calling\"]\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "XML Bins",
+      "items": [
+        {
+          "type": "http",
+          "name": "Create an XML Bin",
+          "seq": 4,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "Name",
+                  "value": "This is a Laml Bin",
+                  "enabled": true
+                },
+                {
+                  "name": "Contents",
+                  "value": "<Response><Say>Hello, welcome to the Death Star. Your call is very important to us.</Say><Hangup /></Response>",
+                  "enabled": true
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete an XML Bin",
+          "seq": 5,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "List All XML Bins",
+          "seq": 1,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": [
+              {
+                "name": "Name",
+                "value": "Say",
+                "enabled": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "http",
+          "name": "Retrieve an XML BIn",
+          "seq": 2,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update an XML Bin",
+          "seq": 3,
+          "request": {
+            "url": "https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/LamlBins/:bin_id",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "formUrlEncoded",
+              "formUrlEncoded": [
+                {
+                  "name": "name",
+                  "value": "Test",
+                  "enabled": true
+                },
+                {
+                  "name": "contents",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "basic",
+              "basic": {
+                "username": "{{Proj}}",
+                "password": "{{Auth}}"
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    }
+  ],
+  "environments": []
+}

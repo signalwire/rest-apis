@@ -1,0 +1,25 @@
+meta {
+  name: List all Domain Applications
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/domain_applications?filter_name=Test App
+  body: none
+  auth: basic
+}
+
+query {
+  filter_name: Test App
+  ~filter_domain: null
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Create Subscriber
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/subscribers
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "email": "username@mail.com",
+      "password": "somepass"
+  }
+}
