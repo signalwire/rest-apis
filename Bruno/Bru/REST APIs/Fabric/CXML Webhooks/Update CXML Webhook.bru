@@ -1,0 +1,26 @@
+meta {
+  name: Update CXML Webhook
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{Space}}/api/fabric/resources/cxml_webhooks/:id
+  body: json
+  auth: basic
+}
+
+params:path {
+  id: 71d5b67e-7944-4e0b-8e54-884fbb5519b4
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "New Name"
+  }
+}

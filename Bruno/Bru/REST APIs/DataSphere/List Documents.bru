@@ -1,0 +1,16 @@
+meta {
+  name: List Documents
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/datasphere/documents
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

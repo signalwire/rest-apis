@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Document
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{Space}}/api/datasphere/documents/:document_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  document_id: e49ce472-e6aa-4e0f-b9be-fe2ab3e57799
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

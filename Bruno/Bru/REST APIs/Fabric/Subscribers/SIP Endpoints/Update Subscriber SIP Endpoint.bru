@@ -1,0 +1,35 @@
+meta {
+  name: Update Subscriber SIP Endpoint
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{Space}}/api/fabric/resources/subscribers/:fabric_subscriber_id/sip_endpoints/:sip_endpoint_id
+  body: json
+  auth: basic
+}
+
+params:path {
+  fabric_subscriber_id: 515810e9-3933-4d64-9fa9-2c9dde6b38c6
+  sip_endpoint_id: 1b691579-c988-420a-95f4-ba305851bf05
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "username": "username-sip-endpoint",
+      "password": "hack-me-if-you-can",
+      "encryption": "optional",
+      "ciphers": [
+          "AEAD_AES_256_GCM_8"
+      ],
+      "codecs": [
+          "OPUS"
+      ]
+  }
+}

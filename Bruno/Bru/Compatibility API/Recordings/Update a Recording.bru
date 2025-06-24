@@ -10,13 +10,14 @@ put {
   auth: basic
 }
 
+params:path {
+  call_id: 
+  recording_id: 
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }
 
 body:multipart-form {

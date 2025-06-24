@@ -15,14 +15,10 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
       "username": "myendpoint",
-      "password": 123456,
+      "password": "thisisaverysecurepassword",
       "caller_id": "SignalWire"
   }
 }

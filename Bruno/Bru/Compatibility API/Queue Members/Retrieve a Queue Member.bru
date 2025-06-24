@@ -10,15 +10,16 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~Front: false
+}
+
+params:path {
+  queue_sid: 
+  member_sid: 
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

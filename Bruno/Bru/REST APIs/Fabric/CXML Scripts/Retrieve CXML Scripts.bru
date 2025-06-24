@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve CXML Scripts
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/cxml_scripts/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: da42e235-6288-446c-a942-a224ef0cd230
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

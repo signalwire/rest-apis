@@ -1,0 +1,29 @@
+meta {
+  name: Create CXML Webhook
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/cxml_webhooks
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "My Webhook",
+      "used_for": "calling",
+      "primary_request_url": "https://primary.com",
+      "primary_request_method": "GET",
+      "fallback_request_url": "https://fallback.com",
+      "fallback_request_method": "GET",
+      "status_callback_url": "https://callback.com",
+      "status_callback_method": "POST"
+  }
+}

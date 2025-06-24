@@ -1,0 +1,30 @@
+meta {
+  name: Update Document
+  type: http
+  seq: 4
+}
+
+patch {
+  url: https://{{Space}}/api/datasphere/documents/:id
+  body: json
+  auth: basic
+}
+
+params:path {
+  id: 16bc5ec1-6b61-46cb-b2d6-90826979a840
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "tags": [
+          "sports",
+          "football",
+          "match"
+      ]
+  }
+}

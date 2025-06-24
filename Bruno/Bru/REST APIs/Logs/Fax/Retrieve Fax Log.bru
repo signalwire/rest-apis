@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Fax Log
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fax/logs/:log_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  log_id: ac6eaa65-6266-4265-bbfe-4511986095df
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

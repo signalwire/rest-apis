@@ -1,0 +1,34 @@
+meta {
+  name: Create Subscriber SIP Endpoint
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/subscribers/:fabric_subscriber_id/sip_endpoints
+  body: json
+  auth: basic
+}
+
+params:path {
+  fabric_subscriber_id: 515810e9-3933-4d64-9fa9-2c9dde6b38c6
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "username": "username-sip-endpoint",
+      "password": "hack-me-if-you-can",
+      "encryption": "optional",
+      "ciphers": [
+          "AEAD_AES_256_GCM_8"
+      ],
+      "codecs": [
+          "OPUS"
+      ]
+  }
+}

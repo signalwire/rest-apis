@@ -1,0 +1,24 @@
+meta {
+  name: Create Subprojects 
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:form-urlencoded {
+  FriendlyName: Subproject Name 
+}
+
+docs {
+  This endpoint creates a subproject under the project whose API token and ID is being used. 
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Update Video Conference Room
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{Space}}/api/fabric/resources/conference_rooms/:resource_id
+  body: json
+  auth: basic
+}
+
+params:path {
+  resource_id: c72e02d6-13d7-4b63-94a8-c02ff10a6af1
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "display_name": "I've got a new name"
+  }
+}

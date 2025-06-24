@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   number_type: toll-free
   ~areacode: 
   ~starts_with: 
@@ -24,8 +24,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

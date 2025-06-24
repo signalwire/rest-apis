@@ -1,0 +1,21 @@
+meta {
+  name: Retrieve Chunk
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/datasphere/documents/:document_id/chunks/:chunk_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  document_id: 6cc1624b-ec30-435f-b8d5-b2ea613a18de
+  chunk_id: 5a65522d-f85f-421b-9c0f-89d5e62b16a7
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

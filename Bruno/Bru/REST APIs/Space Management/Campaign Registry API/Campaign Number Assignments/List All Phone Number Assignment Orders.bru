@@ -10,15 +10,15 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~filter_state: null
+}
+
+params:path {
+  campaign_id: 25f89e09-bd3c-46be-acb6-4d2765e6f2af
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

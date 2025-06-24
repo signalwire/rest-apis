@@ -1,0 +1,19 @@
+meta {
+  name: Retrieve Address
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/addresses/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 94e4e461-24f2-4c41-810a-ec893930eecc
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

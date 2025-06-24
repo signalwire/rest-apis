@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~date_created_after: 2020-09-08
   ~date_created_on_or_before: 2020-09-09
   ~to: +12143334444
@@ -20,8 +20,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

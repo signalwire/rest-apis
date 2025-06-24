@@ -1,0 +1,16 @@
+meta {
+  name: List Video Conference Rooms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/conference_rooms
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

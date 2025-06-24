@@ -10,17 +10,17 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   include: carrier,cnam
   ~include: carrier
   ~include: CNAM
 }
 
+params:path {
+  phone_number: +12143334444
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

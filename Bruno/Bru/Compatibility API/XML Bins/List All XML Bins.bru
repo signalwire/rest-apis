@@ -10,15 +10,11 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~Name: Say
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

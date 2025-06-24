@@ -1,0 +1,20 @@
+meta {
+  name: List Addresses for CXML Application
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/cxml_applications/:resource_id/addresses
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 4d755891-1617-4a45-aeec-5d5dbf591a06
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~FriendlyName: App1
 }
 
@@ -19,6 +19,6 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
+docs {
+  Optional FriendlyName parameter to choose a specific one by name 
 }

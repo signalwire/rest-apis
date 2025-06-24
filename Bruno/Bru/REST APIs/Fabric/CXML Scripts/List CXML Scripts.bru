@@ -1,0 +1,16 @@
+meta {
+  name: List CXML Scripts
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/cxml_scripts
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

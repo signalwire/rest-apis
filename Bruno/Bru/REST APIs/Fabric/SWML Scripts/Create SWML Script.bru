@@ -1,7 +1,7 @@
 meta {
   name: Create SWML Script
   type: http
-  seq: 6
+  seq: 4
 }
 
 post {
@@ -15,16 +15,32 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
-      "name": "My SWML Script",
+      "name": "My Script",
       "contents": {
-          "call": {
-              "project_id": "593faa6b-0d9f-48ea-81f1-10a142e87158"
+          "version": "1.0.0",
+          "sections": {
+              "main": [
+                  {
+                      "answer": {}
+                  },
+                  {
+                      "execute": {
+                          "dest": "play_music",
+                          "params": {
+                              "to_play": "https://cdn.signalwire.com/swml/April_Kisses.mp3"
+                          }
+                      }
+                  }
+              ],
+              "play_music": [
+                  {
+                      "play": {
+                          "url": "%{params.to_play}"
+                      }
+                  }
+              ]
           }
       }
   }

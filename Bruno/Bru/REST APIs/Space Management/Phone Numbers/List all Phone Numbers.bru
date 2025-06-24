@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   filter_name: Office Handler
   ~filter_number: 
 }
@@ -18,8 +18,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

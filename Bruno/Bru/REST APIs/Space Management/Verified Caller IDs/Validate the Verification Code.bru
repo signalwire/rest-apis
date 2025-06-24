@@ -10,17 +10,17 @@ put {
   auth: basic
 }
 
-query {
+params:query {
   verification_code: 791364
+}
+
+params:path {
+  verified_caller_id: 
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }
 
 body:json {

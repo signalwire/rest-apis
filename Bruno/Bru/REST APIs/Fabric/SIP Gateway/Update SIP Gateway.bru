@@ -1,0 +1,26 @@
+meta {
+  name: Update SIP Gateway
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{Space}}/api/fabric/resources/sip_gateways/:resource_id
+  body: json
+  auth: basic
+}
+
+params:path {
+  resource_id: bef0a1eb-09ed-447e-96e4-6729d7a32ff6
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "new name"
+  }
+}

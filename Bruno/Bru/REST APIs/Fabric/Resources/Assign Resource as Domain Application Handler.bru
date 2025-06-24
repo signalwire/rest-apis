@@ -1,0 +1,26 @@
+meta {
+  name: Assign Resource as Domain Application Handler
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/:resource_id/domain_applications
+  body: json
+  auth: basic
+}
+
+params:path {
+  resource_id: 2d85a287-799b-4d05-a0ac-1192374d15e0
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "domain_application_id": "2195ef7d-57d1-4757-a811-c99765680d8e"
+  }
+}

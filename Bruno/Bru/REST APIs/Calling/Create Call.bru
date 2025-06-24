@@ -1,0 +1,27 @@
+meta {
+  name: Create Call
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/calling/calls
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "command": "dial",
+      "params": {
+          "url": "https://example.com/swml",
+          "from": "sip:from-sip@example-112233445566.sip.signalwire.com",
+          "to": "sip:to-sip@example-112233445567.sip.signalwire.com"
+      }
+  }
+}

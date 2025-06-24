@@ -1,0 +1,20 @@
+meta {
+  name: Delete Recording
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{Space}}/api/relay/rest/recordings/:id
+  body: none
+  auth: basic
+}
+
+params:path {
+  id: cd013c56-0bab-4705-adf9-a502c9fe59ad
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

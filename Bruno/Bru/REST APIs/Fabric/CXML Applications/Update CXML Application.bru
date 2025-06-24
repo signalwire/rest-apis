@@ -1,0 +1,26 @@
+meta {
+  name: Update CXML Application
+  type: http
+  seq: 4
+}
+
+patch {
+  url: https://{{Space}}/api/fabric/resources/cxml_applications/:resource_id
+  body: json
+  auth: basic
+}
+
+params:path {
+  resource_id: 4d755891-1617-4a45-aeec-5d5dbf591a06
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "new name"
+  }
+}

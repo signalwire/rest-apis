@@ -1,0 +1,24 @@
+meta {
+  name: List Available Phone Number Resources by Country 
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}}/AvailablePhoneNumbers/:country
+  body: none
+  auth: basic
+}
+
+params:path {
+  country: US
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+docs {
+  Returns a list of URIs to phone number resources available to the account in the US ISO country, categorized by type (Local, Toll-Free, Mobile, etc).
+}

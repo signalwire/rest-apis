@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   InRegion: LA
   ~AreaCode: 508
   ~Contains: 682
@@ -20,15 +20,11 @@ query {
   ~ExcludeLocalAddressRequired: true
   ~FaxEnabled: true
   ~MmsEnabled: false
-  ~SmsEnabled: false
+  ~SmsEnabled: false 
   ~VoiceEnabled: false
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

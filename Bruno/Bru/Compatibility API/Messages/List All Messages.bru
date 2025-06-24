@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~PageSize: 75
   ~To: %2b12143334444
   ~From: %2b16083334444
@@ -23,8 +23,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

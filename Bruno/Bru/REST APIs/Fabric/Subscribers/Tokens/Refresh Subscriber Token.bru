@@ -1,0 +1,22 @@
+meta {
+  name: Refresh Subscriber Token
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/fabric/subscribers/tokens/refresh
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "refresh_token": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwidHlwIjoiUmVmcmVzaCIsImNoIjoicHVjLnNpZ25hbHdpcmUuY29tIn0..QFeBT2cK8yK_q6Lh.eoAZNGWtIeAEYKk-16NjlCYf1gCundR-kpjBuLJGmtdcv3TFfSqUzTCxO4zcZbsvH8YMJPzyJgQe9ck8q0bAG3gKIciTKJ7lNU6FV4W7dWsiNKaL0KqYwCoY_V7wB9h_yqz"
+  }
+}

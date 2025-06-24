@@ -15,10 +15,6 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:form-urlencoded {
   FriendlyName: App3
   ~MessageStatusCallback: 
@@ -33,4 +29,8 @@ body:form-urlencoded {
   ~VoiceFallbackUrl: 
   ~VoiceMethod: 
   ~VoiceUrl: 
+}
+
+docs {
+  Creates a new application within the project used for authentication 
 }

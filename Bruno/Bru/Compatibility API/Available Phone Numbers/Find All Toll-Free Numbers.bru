@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~Contains: WIN
   ~Contains: 604
 }
@@ -18,8 +18,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

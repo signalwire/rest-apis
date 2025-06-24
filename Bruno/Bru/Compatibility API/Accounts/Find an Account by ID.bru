@@ -10,11 +10,11 @@ get {
   auth: basic
 }
 
+params:path {
+  account_id: {{Proj}}
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

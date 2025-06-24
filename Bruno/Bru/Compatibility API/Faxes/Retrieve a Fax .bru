@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve a Fax 
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Faxes/:fax_sid
+  body: none
+  auth: basic
+}
+
+params:path {
+  fax_sid: ac6eaa65-6266-4265-bbfe-4511986095df
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

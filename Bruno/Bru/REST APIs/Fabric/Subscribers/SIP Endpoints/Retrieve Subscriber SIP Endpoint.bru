@@ -1,0 +1,21 @@
+meta {
+  name: Retrieve Subscriber SIP Endpoint
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/subscribers/:subscriber_id/sip_endpoints/:sip_endpoint_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  subscriber_id: f787db93-5637-4344-8f13-6ccb4f8a6457
+  sip_endpoint_id: a43085d9-0398-4045-b8a7-0cb081559ae1
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

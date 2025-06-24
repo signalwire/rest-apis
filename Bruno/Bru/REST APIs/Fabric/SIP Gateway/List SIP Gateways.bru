@@ -1,0 +1,16 @@
+meta {
+  name: List SIP Gateways
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/sip_gateways
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

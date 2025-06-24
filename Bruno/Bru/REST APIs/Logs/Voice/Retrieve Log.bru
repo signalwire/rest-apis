@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Log
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/voice/logs/:voice_log_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  voice_log_id: e220bb70-b0b6-4174-813f-add9910f6533
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

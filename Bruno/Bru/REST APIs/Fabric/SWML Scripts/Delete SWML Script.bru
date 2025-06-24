@@ -1,7 +1,7 @@
 meta {
   name: Delete SWML Script
   type: http
-  seq: 5
+  seq: 6
 }
 
 delete {
@@ -10,11 +10,11 @@ delete {
   auth: basic
 }
 
+params:path {
+  resource_id: 6c5fc432-34a4-4195-b697-108b10928327
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

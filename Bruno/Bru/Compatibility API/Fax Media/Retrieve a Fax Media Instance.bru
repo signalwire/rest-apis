@@ -10,15 +10,16 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~: null
+}
+
+params:path {
+  fax_sid: ac6eaa65-6266-4265-bbfe-4511986095df
+  media_sid: 2ff76de9-c3b6-4433-86b1-9626cfdb9b65
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

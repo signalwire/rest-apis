@@ -10,17 +10,17 @@ put {
   auth: basic
 }
 
+params:path {
+  verified_caller_id: 
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
-      "name": "Cassie's Updated Caller ID"
+      "name": "Updated Caller ID"
     }
 }

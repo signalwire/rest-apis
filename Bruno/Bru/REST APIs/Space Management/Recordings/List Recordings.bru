@@ -1,0 +1,16 @@
+meta {
+  name: List Recordings
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/relay/rest/recordings
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

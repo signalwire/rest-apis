@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve SWML Scripts
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/swml_scripts/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: ed84b1b5-ed7f-4d06-9bed-e1e8953cd2e3
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

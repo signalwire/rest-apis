@@ -1,7 +1,7 @@
 meta {
   name: Retrieve AI Agent
   type: http
-  seq: 2
+  seq: 3
 }
 
 get {
@@ -10,11 +10,11 @@ get {
   auth: basic
 }
 
+params:path {
+  resource_id: c46e3f7b-2e6c-4942-9d14-175d64382308
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

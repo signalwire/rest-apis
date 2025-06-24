@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: https://{{Space}}/api/fabric/resources/relay_applications/
+  url: https://{{Space}}/api/fabric/resources/relay_applications
   body: none
   auth: basic
 }
@@ -13,8 +13,4 @@ get {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }
