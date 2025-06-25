@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve SWML Webhooks
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/swml_webhooks/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 35937470-f918-4456-ad0a-b5dea988efed
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

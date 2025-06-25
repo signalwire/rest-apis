@@ -1,0 +1,24 @@
+meta {
+  name: Create Guest Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/fabric/guests/tokens
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "allowed_addresses": [
+          "cc1fb1ed-9cb4-4cd9-aaab-2af00fa4c5d2"
+      ]
+  }
+}

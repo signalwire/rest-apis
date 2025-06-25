@@ -1,0 +1,25 @@
+meta {
+  name: Create Document
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{Space}}/api/datasphere/documents
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "url": "https://example-files.online-convert.com/document/txt/example.txt",
+      "chunking_strategy": "sentence",
+      "max_sentences_per_chunk": "2",
+      "tags": ["criminal", "process"]
+  }
+}

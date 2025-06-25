@@ -1,0 +1,20 @@
+meta {
+  name: List Addresses for CXML Scripts
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/cxml_scripts/:resource_id/addresses
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 24400d83-3999-42da-9ed0-21d5efefc1b5
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

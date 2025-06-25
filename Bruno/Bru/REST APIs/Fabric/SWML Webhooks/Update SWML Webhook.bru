@@ -1,0 +1,26 @@
+meta {
+  name: Update SWML Webhook
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{Space}}/api/fabric/resources/swml_webhooks/:id
+  body: json
+  auth: basic
+}
+
+params:path {
+  id: f3531df1-2302-42db-836b-f8ddd6b6dcd2
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "New Name"
+  }
+}

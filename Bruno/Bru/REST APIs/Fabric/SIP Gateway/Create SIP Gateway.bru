@@ -1,0 +1,31 @@
+meta {
+  name: Create SIP Gateway
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/sip_gateways
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+    "name": "My SIP Gateway",
+    "uri": "sip:music@iptel.org",
+    "encryption": "required",
+    "ciphers": [
+      "AEAD_AES_256_GCM_8",
+      "AES_256_CM_HMAC_SHA1_80"
+    ],
+    "codecs": [
+      "OPUS"
+    ]
+  }
+}

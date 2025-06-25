@@ -10,15 +10,15 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~media_ttl: null
+}
+
+params:path {
+  session_id: 4c36d12b-b833-44d0-ac16-e47370e3a7d1
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

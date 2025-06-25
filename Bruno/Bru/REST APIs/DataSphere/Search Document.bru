@@ -1,0 +1,24 @@
+meta {
+  name: Search Document
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/datasphere/documents/search
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "query_string": "When a body is found with an unknown identity, what do we call them?",
+      "tags": ["court"],
+      "count": 5
+  }
+}

@@ -10,15 +10,15 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~include_active_session: true
+}
+
+params:path {
+  conference_id: e470a756-da3b-4b20-ba73-1b2caa35f51c
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

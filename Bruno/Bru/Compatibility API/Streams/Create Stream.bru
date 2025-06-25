@@ -1,0 +1,27 @@
+meta {
+  name: Create Stream
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_id/Streams
+  body: json
+  auth: basic
+}
+
+params:path {
+  call_id: d2392b47-cddc-4560-8028-ff25b82948eb
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "Name": "my stream",
+      "Url": "wss://ws.postman-echo.com/raw"
+  }
+}

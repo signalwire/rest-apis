@@ -1,0 +1,20 @@
+meta {
+  name: Delete Document
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/datasphere/documents/:id
+  body: none
+  auth: basic
+}
+
+params:path {
+  id: 16bc5ec1-6b61-46cb-b2d6-90826979a840
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

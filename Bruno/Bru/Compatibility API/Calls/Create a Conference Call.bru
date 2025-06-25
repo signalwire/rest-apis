@@ -1,0 +1,45 @@
+meta {
+  name: Create a Conference Call
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:form-urlencoded {
+  From: +12223334444
+  To: +13334445555
+  Url: https://path_to_laml_document
+  ~ApplicationSid: 
+  ~Record: true
+  ~CallerId: 
+  ~FallbackMethod: 
+  ~FallbackUrl: 
+  ~MachineDetection: DetectMessageEnd
+  ~MachineDetectionTimeout: 
+  ~Method: 
+  ~RecordingChannels: 
+  ~RecordingStatusCallback: 
+  ~RecordingStatusCallbackEvent: 
+  ~RecordingStatusCallbackMethod: 
+  ~SipAuthUsername: 
+  ~SipAuthPassword: 
+  ~SendDigits: 
+  ~StatusCallback: https://webhook.site/bbeba55e-d257
+  ~StatusCallbackEvent: completed
+  ~StatusCallbackMethod: POST
+  ~Timeout: 
+  ~Trim: 
+  ~MaxPricePerMinute: 10
+  ~AsyncAmd: true
+  ~AsyncAmdStatusCallback: https://webhook.site/31cebf03-dc5f-49dc-b9fb
+}

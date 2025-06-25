@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Members Waiting in a Queue 
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Queues/:queue_sid/Members
+  body: none
+  auth: basic
+}
+
+params:path {
+  queue_sid: 
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

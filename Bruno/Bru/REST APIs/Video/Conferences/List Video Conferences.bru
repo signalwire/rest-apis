@@ -10,15 +10,11 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~include_active_session: true
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

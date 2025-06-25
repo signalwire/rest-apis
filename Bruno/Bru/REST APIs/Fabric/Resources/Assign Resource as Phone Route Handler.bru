@@ -1,0 +1,27 @@
+meta {
+  name: Assign Resource as Phone Route Handler
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/:resource_id/phone_routes
+  body: json
+  auth: basic
+}
+
+params:path {
+  resource_id: 8350fd5e-3a17-4688-b9d1-eaf6865d0d7c
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "phone_route_id": "62f0c34c-c63a-4869-ac92-0b669e806e17",
+      "handler": "calling"
+  }
+}

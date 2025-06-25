@@ -10,15 +10,15 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~media_ttl: null
+}
+
+params:path {
+  recording_id: 
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

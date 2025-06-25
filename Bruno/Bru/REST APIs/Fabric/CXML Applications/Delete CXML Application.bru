@@ -1,0 +1,20 @@
+meta {
+  name: Delete CXML Application
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/cxml_applications/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 4d755891-1617-4a45-aeec-5d5dbf591a06
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

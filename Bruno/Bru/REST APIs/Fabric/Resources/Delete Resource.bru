@@ -1,0 +1,20 @@
+meta {
+  name: Delete Resource
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: f69860be-dd53-4002-b8b3-f8d80f967a86
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

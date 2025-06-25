@@ -1,0 +1,25 @@
+meta {
+  name: List All Active Participants 
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Conferences/:conference_sid/Participants
+  body: none
+  auth: basic
+}
+
+params:query {
+  ~Muted: null
+  ~Hold: null
+}
+
+params:path {
+  conference_sid: 79d10a4a-8a83-4702-bd00-5554040978e2
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

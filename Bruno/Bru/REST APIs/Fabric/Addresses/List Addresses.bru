@@ -1,0 +1,21 @@
+meta {
+  name: List Addresses
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/addresses
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~display_name: New Name
+  ~type: room
+  ~page_size: 2
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}

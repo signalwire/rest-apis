@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Video Conference Room
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/conference_rooms/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: c72e02d6-13d7-4b63-94a8-c02ff10a6af1
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

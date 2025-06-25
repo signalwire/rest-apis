@@ -1,7 +1,7 @@
 meta {
   name: Update AI Agent
   type: http
-  seq: 4
+  seq: 5
 }
 
 put {
@@ -10,13 +10,13 @@ put {
   auth: basic
 }
 
+params:path {
+  resource_id: 3a2ae556-bab8-4ef4-ad57-07f102e6d395
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }
 
 body:json {

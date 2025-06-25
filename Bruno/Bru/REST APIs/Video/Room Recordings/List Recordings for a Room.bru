@@ -10,15 +10,11 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~media_ttl: null
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

@@ -1,0 +1,28 @@
+meta {
+  name: Update Call
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{Space}}/api/calling/calls
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "command": "update",
+      "params": {
+          "url": "https://example.com/swml",
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "fallback_url": "https://example.com/fallback",
+          "status": "canceled"
+      }
+  }
+}

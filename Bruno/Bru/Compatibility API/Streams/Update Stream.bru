@@ -1,0 +1,27 @@
+meta {
+  name: Update Stream
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls/:call_id/Streams/:stream_id
+  body: json
+  auth: basic
+}
+
+params:path {
+  call_id: d2392b47-cddc-4560-8028-ff25b82948eb
+  stream_id: 378902fa-4d52-4de3-9dff-6ef8a3573f1f
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "Status": "stopped"
+  }
+}

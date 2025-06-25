@@ -5,13 +5,16 @@ meta {
 }
 
 get {
-  url: https://{{Space}}/api/laml/2010-04-01/Accounts?FriendlyName=Main
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts?PageSize=1&PageToken=PA10b0fc5b-8644-4b0e-b285-f85fbe4eb890&Page=0
   body: none
   auth: basic
 }
 
-query {
-  FriendlyName: Main
+params:query {
+  PageSize: 1
+  PageToken: PA10b0fc5b-8644-4b0e-b285-f85fbe4eb890
+  Page: 0
+  ~FriendlyName: Main
 }
 
 auth:basic {
@@ -19,6 +22,6 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
+docs {
+  This route is present to be API compatible with other providers, but since authentication on SignalWire is specific to a Project, this endpoint will return a list that contains only the Project you are connecting as.
 }

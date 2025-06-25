@@ -10,17 +10,17 @@ post {
   auth: basic
 }
 
-query {
+params:query {
   ~Status: completed
   ~AnnounceUrl: 
   ~AnnounceMethod: 
 }
 
+params:path {
+  conference_id: 79d10a4a-8a83-4702-bd00-5554040978e2
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

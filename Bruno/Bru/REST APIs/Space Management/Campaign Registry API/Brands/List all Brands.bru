@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~filter_name: null
   ~filter_state: null
 }
@@ -20,6 +20,6 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
+docs {
+  Returns a list of your Brands. The brands are returned sorted by creation date, with the most recent appearing first. The list is filterable by sending in any of the following parameters.
 }

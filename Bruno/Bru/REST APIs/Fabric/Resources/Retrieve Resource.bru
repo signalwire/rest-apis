@@ -1,0 +1,20 @@
+meta {
+  name: Retrieve Resource
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 685c20cc-b86c-4738-bcb3-1960fca38c03
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

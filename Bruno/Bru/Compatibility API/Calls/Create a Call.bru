@@ -15,17 +15,10 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:form-urlencoded {
   From: +12003004000
   To: +13338889999
   Url: https://some_url.com/call
-  StatusCallback: https://webhook.site/bbeba55e-d257-48ef-8b0b-78511da278af
-  StatusCallbackEvent: completed
-  StatusCallbackMethod: POST
   ~ApplicationSid: 
   ~Record: true
   ~CallerId: 
@@ -41,9 +34,12 @@ body:form-urlencoded {
   ~SipAuthUsername: 
   ~SipAuthPassword: 
   ~SendDigits: 
+  ~StatusCallback: https://webhook.site/bbeba55e-d257
+  ~StatusCallbackEvent: completed
+  ~StatusCallbackMethod: POST
   ~Timeout: 
   ~Trim: 
   ~MaxPricePerMinute: 10
   ~AsyncAmd: true
-  ~AsyncAmdStatusCallback: https://webhook.site/31cebf03-dc5f-49dc-b9fb-4ae7d9665c5a
+  ~AsyncAmdStatusCallback: https://webhook.site/31cebf03-dc5f-49dc-b9fb
 }

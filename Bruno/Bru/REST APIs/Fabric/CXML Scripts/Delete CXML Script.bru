@@ -1,0 +1,20 @@
+meta {
+  name: Delete CXML Script
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/cxml_scripts/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 6c5fc432-34a4-4195-b697-108b10928327
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

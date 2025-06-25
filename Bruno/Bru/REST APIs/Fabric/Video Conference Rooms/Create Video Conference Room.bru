@@ -1,0 +1,23 @@
+meta {
+  name: Create Video Conference Room
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/conference_rooms
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "coffee_cafe",
+      "display_name": "For Coffee Breaks"
+  }
+}

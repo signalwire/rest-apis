@@ -1,0 +1,16 @@
+meta {
+  name: List CXML Webhooks
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/cxml_webhooks
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

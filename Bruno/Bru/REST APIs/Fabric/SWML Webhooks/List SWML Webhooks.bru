@@ -1,0 +1,16 @@
+meta {
+  name: List SWML Webhooks
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/fabric/resources/swml_webhooks
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

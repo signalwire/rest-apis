@@ -5,21 +5,17 @@ meta {
 }
 
 get {
-  url: https://{{Space}}/api/relay/rest/domain_applications?filter_name=Test App
+  url: https://{{Space}}/api/relay/rest/domain_applications
   body: none
   auth: basic
 }
 
-query {
-  filter_name: Test App
-  ~filter_domain: null
+params:query {
+  ~filter_domain: 
+  ~filter_name: Test App
 }
 
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

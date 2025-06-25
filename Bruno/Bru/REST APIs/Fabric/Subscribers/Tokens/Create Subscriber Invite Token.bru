@@ -1,0 +1,21 @@
+meta {
+  name: Create Subscriber Invite Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{Space}}/api/fabric/subscriber/invites
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BearerToken}}
+}
+
+body:json {
+  {
+      "address_id": "cc1fb1ed-9cb4-4cd9-aaab-2af00fa4c5d2"
+  }
+}

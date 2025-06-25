@@ -10,20 +10,20 @@ post {
   auth: basic
 }
 
+params:path {
+  campaign_id: 2e976312-dc95-455f-bccd-9063b1f8e562
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
       "phone_numbers": [
-          "+12085812340",
-          "+12032981220"
-      ]
+          "+12012772800"
+      ],
+      "status_callback_url": "https://webhook.site/cd3c7057-48c8-4e80-b166-4f3a4ee64b5c"
   }
 }

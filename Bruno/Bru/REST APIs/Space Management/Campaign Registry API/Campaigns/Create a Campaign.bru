@@ -10,23 +10,19 @@ post {
   auth: basic
 }
 
+params:path {
+  brand_id: ef01ba9c-3ef0-416b-a832-3895a6eff6de
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
-      "name": "My Campaign",
-      "sms_use_case": "MIXED",
-      "sub_use_cases": [
-          "MARKETING",
-          "CUSTOMER_CARE"
-      ],
+      "name": "Test Campaign",
+      "sms_use_case": "2FA",
       "description": "this is a description about what your campaign will do",
       "sample1": "this is a long sample message",
       "sample2": "this is a long sample message",
@@ -42,6 +38,7 @@ body:json {
       "embedded_phone": false,
       "age_gated_content": true,
       "lead_generation": true,
-      "terms_and_conditions": true
+      "terms_and_conditions": true,
+      "status_callback_url": "https://website.com"
   }
 }

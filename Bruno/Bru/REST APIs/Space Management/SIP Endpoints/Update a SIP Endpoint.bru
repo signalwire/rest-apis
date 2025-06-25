@@ -10,20 +10,17 @@ put {
   auth: basic
 }
 
+params:path {
+  sip_endpoint_id: 60f6c018-9fb2-4316-8bc3-fe62b120c0fe
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
-      "password" : "newSecretPassword",
-      "codecs" : ["OPUS"],
-      "call_handler": "relay_script",
-      "call_relay_script_url": "https://some_url.com?foo=bar"
+      "password": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
 }

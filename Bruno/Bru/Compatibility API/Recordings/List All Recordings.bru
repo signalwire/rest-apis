@@ -10,7 +10,7 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~CallSid: null
   ~ConferenceSid: null
   ~DateCreated: 2020-09-11
@@ -21,8 +21,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

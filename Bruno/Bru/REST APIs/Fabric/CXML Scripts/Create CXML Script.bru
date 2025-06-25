@@ -1,0 +1,23 @@
+meta {
+  name: Create CXML Script
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{Space}}/api/fabric/resources/cxml_scripts
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "My Script",
+      "contents": "<?xml version='1.0' encoding='UTF-8'?><Response><Say> Hello World! Goodbye, World.</Say> <Hangup/></Response>"
+  }
+}

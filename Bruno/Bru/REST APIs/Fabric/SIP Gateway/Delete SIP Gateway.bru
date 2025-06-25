@@ -1,0 +1,20 @@
+meta {
+  name: Delete SIP Gateway
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/sip_gateways/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: bef0a1eb-09ed-447e-96e4-6729d7a32ff6
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

@@ -1,0 +1,20 @@
+meta {
+  name: List Chunks
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{Space}}/api/datasphere/documents/:document_id/chunks
+  body: none
+  auth: basic
+}
+
+params:path {
+  document_id: 1c8a2904-fba0-4311-82b4-b8288e818438
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

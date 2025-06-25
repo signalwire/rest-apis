@@ -5,18 +5,21 @@ meta {
 }
 
 get {
-  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls
+  url: https://{{Space}}/api/laml/2010-04-01/Accounts/{{Proj}}/Calls?Status=in-progress&From=%2b19108585888&Status=ringing&Status=queued&Status=initiated
   body: none
   auth: basic
 }
 
-query {
-  ~PageSize: 5
+params:query {
+  Status: in-progress
+  From: %2b19108585888
+  Status: ringing
+  Status: queued
+  Status: initiated
+  ~PageSize: 500
   ~page: 1
   ~ParentCallSid: 7c175a76-4bfc-4cea-93aa-4966f89b4be1
-  ~Status: failed
   ~To: %2b12143334444
-  ~From: %2b12143334444
   ~StartTime<: 2020-08-10
   ~StartTime>: 2020-08-10
   ~StartTime: 2020-08-10
@@ -26,8 +29,4 @@ query {
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

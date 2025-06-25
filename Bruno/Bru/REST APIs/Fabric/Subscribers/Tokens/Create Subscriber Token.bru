@@ -1,0 +1,23 @@
+meta {
+  name: Create Subscriber Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{Space}}/api/fabric/subscribers/tokens
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "reference": "subscriberemail@gmail.com",
+      "application_id": "afbe9497-c57d-4029-bd48-3b64fe18e8e9"
+  }
+}

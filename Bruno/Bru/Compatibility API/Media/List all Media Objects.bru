@@ -10,18 +10,18 @@ get {
   auth: basic
 }
 
-query {
+params:query {
   ~DateCreated: 2020-09-08
   ~DateCreated<: 2020-09-08
   ~DateCreated>: 2020-09-08
   ~PageSize: 52
 }
 
+params:path {
+  message_sid: d31b33f7-8d93-49ac-8416-a169d01ecd4c
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
-}
-
-auth:bearer {
-  token: 
 }

@@ -1,13 +1,17 @@
 meta {
   name: Update SWML Script
   type: http
-  seq: 4
+  seq: 5
 }
 
-put {
-  url: https://{{Space}}/api/fabric/resources/swml_scripts/:resource_id
+patch {
+  url: https://{{Space}}/api/fabric/resources/swml_scripts/:id
   body: json
   auth: basic
+}
+
+params:path {
+  id: 6c5fc432-34a4-4195-b697-108b10928327
 }
 
 auth:basic {
@@ -15,12 +19,8 @@ auth:basic {
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:json {
   {
-      "name": "My New SWML Script Name"
+      "name": "New Name"
   }
 }

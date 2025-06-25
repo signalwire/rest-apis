@@ -1,0 +1,28 @@
+meta {
+  name: Create a Self Registered Campaign
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands/:brand_id/campaigns
+  body: json
+  auth: basic
+}
+
+params:path {
+  brand_id: 7d307412-4986-45b0-9aee-0042e3f1bea1
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:json {
+  {
+      "name": "My CSP Campaign",
+      "csp_campaign_reference": "C12345",
+      "status_callback_url": "https://mywebsite.com/callback"
+  }
+}

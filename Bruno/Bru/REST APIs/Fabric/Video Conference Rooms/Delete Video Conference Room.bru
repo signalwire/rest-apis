@@ -1,0 +1,20 @@
+meta {
+  name: Delete Video Conference Room
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{Space}}/api/fabric/resources/conference_rooms/:resource_id
+  body: none
+  auth: basic
+}
+
+params:path {
+  resource_id: 3eb43027-3340-4956-8388-a43ae9a63c92
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}

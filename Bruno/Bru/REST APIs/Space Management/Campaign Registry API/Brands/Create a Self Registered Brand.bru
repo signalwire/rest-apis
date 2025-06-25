@@ -1,0 +1,23 @@
+meta {
+  name: Create a Self Registered Brand
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{Space}}/api/relay/rest/registry/beta/brands
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{Proj}}
+  password: {{Auth}}
+}
+
+body:form-urlencoded {
+  name: My CSP Brand
+  csp_brand_reference: B12234
+  csp_self_registered: true
+  status_callback_url: https://website.com
+}

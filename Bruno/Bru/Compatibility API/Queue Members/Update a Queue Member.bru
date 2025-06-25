@@ -10,16 +10,17 @@ post {
   auth: basic
 }
 
+params:path {
+  queue_sid: 
+  member_sid: 
+}
+
 auth:basic {
   username: {{Proj}}
   password: {{Auth}}
 }
 
-auth:bearer {
-  token: 
-}
-
 body:form-urlencoded {
-  Url: https://bowl-test.signalwire.com/laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31
+  Url: https://{{Space}}laml-bins/5e5e4221-90e2-497b-9d3d-79cbb1c2ec31
   Method: POST
 }
