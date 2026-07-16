@@ -1,3 +1,16 @@
+> [!IMPORTANT]
+>
+> SignalWire is committed to keeping our Postman collection current with every release. Going forward, that lives in our
+official [SignalWire Postman workspace](https://signalwire.com/docs/apis#try-it-in-postman), and this manually maintained repo will be archived.
+>
+> We invite you to clone the workspace: it mirrors our REST endpoints with pre-built requests, example payloads, and a configurable environment for your SignalWire credentials.
+>
+> We can't wait to see what you build!
+
+
+
+
+
 # SignalWire REST API Collections
 SignalWire provides developers with two sets of REST APIs for managing SignalWire spaces and their associated resources: the [REST APIs](https://developer.signalwire.com/rest/) and the [Compatibility REST API](https://developer.signalwire.com/compatibility-api/rest/).
 In order to streamline setup and usage, we offer pre-made collections that are compatible with Postman and Bruno.
